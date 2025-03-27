@@ -2,14 +2,12 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class BulletController : MonoBehaviour
+public class Pigeon : MonoBehaviour
 {
-    // *** TO DO *** //
-    // Make bullet move and hurt enemies
-    // float speed - How fast bullet moves
-    // bullet collissions should be checked only with Enemy layer.
+    public float health;
+    public float[] weaponsDamages;
+    public int weaponIndex;
 
-    public float speed;
 
     // Start is called before the first frame update
     void Start()

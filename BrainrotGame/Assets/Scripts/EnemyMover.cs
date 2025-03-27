@@ -4,16 +4,8 @@ using UnityEngine;
 
 public class EnemyMover : MonoBehaviour
 {
-    // *** TO DO *** //
-    // Make Enemies move towards player on Z axis. 
-    // After they reach special box collission where pigeon is, they should stay in place
-    // They should deal damage to the pigeon once every damageTime
-    // They should lose health after being hit with bullet and disappear after their health is gone
-
     public float speed;
-    public float health;
-    public float damage;
-    public float damageTime;
+    public Rigidbody rb;
 
     // Start is called before the first frame update
     void Start()
@@ -24,6 +16,20 @@ public class EnemyMover : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+        move();
+    }
+
+    void move()
+    {
+        Vector3 movement = new Vector3(0, 0, -speed * Time.deltaTime);
+        transform.position += movement;
+    }
+
+    private void OnTriggerEnter(Collider other)
+    {
+        if(other.gameObject.layer == 10)
+        {
+            speed = 0;
+        }
     }
 }
