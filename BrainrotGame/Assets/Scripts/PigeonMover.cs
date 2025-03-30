@@ -16,7 +16,7 @@ public class PigeonMover : MonoBehaviour
     public GameObject pigeon;
 
     public float[] weaponsFrequencies;
-    public float[] weaponsDamages;
+
     public int weaponIndex;
     public float bulletFrequency;
     public float speed;
