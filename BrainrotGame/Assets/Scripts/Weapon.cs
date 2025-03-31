@@ -6,12 +6,14 @@ public class Weapon : Pickup
 {
     public int weaponIndex;
     public Pigeon pigeon;
+    public PigeonMover pigeonMover;
 
     // TO DO: On pickup
     // Start is called before the first frame update
     void Start()
     {
         pigeon = GameObject.Find("Pigeon").GetComponent<Pigeon>();
+        pigeonMover = GameObject.Find("Pigeon").GetComponent<PigeonMover>();
     }
 
     // Update is called once per frame
@@ -32,6 +34,7 @@ public class Weapon : Pickup
     override protected void picked()
     {
         pigeon.weaponIndex = weaponIndex;
+        pigeonMover.weaponIndex = weaponIndex;
         Destroy(gameObject);
     }
     
