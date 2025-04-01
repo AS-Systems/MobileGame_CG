@@ -32,6 +32,8 @@ public class PigeonMover : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        bulletFrequency = weaponsFrequencies[weaponIndex];
+
         if(Input.GetKey(KeyCode.D))
         {
             moveLeft();

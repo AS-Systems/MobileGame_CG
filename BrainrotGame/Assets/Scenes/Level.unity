@@ -767,7 +767,14 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   bullet: {fileID: 5954450178894511721, guid: 262f675f689516349b86bbe758d9e0e4, type: 3}
   pigeon: {fileID: 919132149268583990}
-  weaponsFrequencies: []
+  weaponsFrequencies:
+  - 1
+  - 0.7
+  - 1.5
+  - 0.5
+  - 1.7
+  - 2.3
+  - 3
   weaponIndex: 0
   bulletFrequency: 0.5
   speed: 3
@@ -785,9 +792,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   health: 100
   weaponsDamages:
+  - 20
   - 10
-  - 10
+  - 40
+  - 25
   - 50
+  - 100
+  - 10000
   weaponIndex: 1
 --- !u!1001 &2262210247119851207
 PrefabInstance:
