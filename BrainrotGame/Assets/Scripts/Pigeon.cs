@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class Pigeon : MonoBehaviour
 {
+    public GameObject[] weaponsModels;
+
     public float health;
     public float[] weaponsDamages;
     public int weaponIndex;

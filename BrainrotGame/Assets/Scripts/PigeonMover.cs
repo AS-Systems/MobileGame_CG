@@ -14,6 +14,7 @@ public class PigeonMover : MonoBehaviour
 
     public GameObject bullet;
     public GameObject pigeon;
+    public GameObject weaponHolder;
 
     public float[] weaponsFrequencies;
 
@@ -58,7 +59,7 @@ public class PigeonMover : MonoBehaviour
 
     void shoot()
     {
-        GameObject newBullet = Instantiate(bullet, pigeon.transform.position, Quaternion.identity);
+        GameObject newBullet = Instantiate(bullet, weaponHolder.transform.position, Quaternion.identity);
     }
 
     void moveLeft()
