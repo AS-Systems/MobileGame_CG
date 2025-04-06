@@ -1,15 +1,18 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class Money : Pickup
 {
-    public GameController gameController;
+    public Pigeon pigeon;
+    public Text txtMoney;
 
     // Start is called before the first frame update
     void Start()
     {
-        gameController = GameObject.Find("GameController").GetComponent<GameController>();
+        pigeon = GameObject.Find("Pigeon").GetComponent<Pigeon>();
+        txtMoney = GameObject.Find("txtMoney").GetComponent<Text>();
     }
 
     // Update is called once per frame
@@ -20,7 +23,8 @@ public class Money : Pickup
 
     protected override void picked()
     {
-        gameController.money++;
+        pigeon.money++;
+        txtMoney.text = pigeon.money.ToString();
         Destroy(gameObject);
     }
 
