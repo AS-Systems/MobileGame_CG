@@ -6,11 +6,6 @@ using UnityEngine;
 
 public class PigeonMover : MonoBehaviour
 {
-    // *** TO DO *** //
-    // Make pigeon move only left and right when user:
-    // - Drags finger on screen (on mobile)
-    // - Drags mouse on screen
-    // - Clicks "a" and "d" or arrows on keyboard
 
     public GameObject bullet;
     public GameObject pigeon;
@@ -68,16 +63,12 @@ public class PigeonMover : MonoBehaviour
         {
             moveRight();
         }
-        
-        if(Input.GetKey(KeyCode.Space))
-        {
-            if(timeSinceLastBullet >= bulletFrequency)
-            {
-                shoot();
-                timeSinceLastBullet = 0;
-            }
-        }
 
+        if (timeSinceLastBullet >= bulletFrequency)
+        {
+            shoot();
+            timeSinceLastBullet = 0;
+        }
         timeSinceLastBullet += Time.deltaTime;
 
     }

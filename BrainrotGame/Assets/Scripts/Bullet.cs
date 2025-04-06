@@ -10,7 +10,6 @@ public class Bullet : MonoBehaviour
     // bullet collissions should be checked only with Enemy layer.
 
     public float speed;
-    public float damage;
     public Enemy enemy;
     public Pigeon pigeon;
 
@@ -18,7 +17,6 @@ public class Bullet : MonoBehaviour
     void Start()
     {
         pigeon = GameObject.Find("Pigeon").GetComponent<Pigeon>();
-        getDamageValue();
 
     }
 
@@ -41,14 +39,10 @@ public class Bullet : MonoBehaviour
             Enemy enemy = other.gameObject.GetComponent<Enemy>();
             if(enemy != null)
             {
-                enemy.takeDamage(damage);
+                enemy.takeDamage(pigeon.damage);
             }
             Destroy(gameObject);
         }
     }
 
-    void getDamageValue()
-    {
-        damage = pigeon.weaponsDamages[pigeon.weaponIndex];
-    }
 }

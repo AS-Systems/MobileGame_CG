@@ -13,6 +13,12 @@ public class Pigeon : MonoBehaviour
     public float health;
     public float[] weaponsDamages;
     public int weaponIndex;
+    public float damage;
+    public bool immunity;
+
+    public float immunityTime = 10f;
+    public float immunityTimePassed = 0;
+
 
 
     // Start is called before the first frame update
@@ -26,6 +32,17 @@ public class Pigeon : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if(immunity == true)
+        {
+        
+            immunityTimePassed += Time.deltaTime;
+
+        }
+        if (immunityTimePassed >= immunityTime)
+        {
+            immunity = false;
+            immunityTimePassed = 0;
+        }
 
         healthBar.value = health;
     }

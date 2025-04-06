@@ -36,6 +36,10 @@ public class Enemy : MonoBehaviour
 
     void dealDamage()
     {
+        if (pigeon.immunity == true)
+        {
+            return;
+        }
         pigeon.health -= damage;
     }
 
