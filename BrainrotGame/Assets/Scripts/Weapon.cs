@@ -58,6 +58,13 @@ public class Weapon : Pickup
 
         pigeon.weaponIndex = weaponIndex;
         pigeonMover.weaponIndex = weaponIndex;
+        foreach(Transform child in weaponHolder.transform)
+        {
+            if (child != newWeapon.transform)
+            {
+                Destroy(child.gameObject);
+            }
+        }
         Destroy(gameObject);
     }
     
