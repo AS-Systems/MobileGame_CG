@@ -5,7 +5,6 @@ using UnityEngine;
 public class Weapon : Pickup
 {
     public int weaponIndex;
-    public Pigeon pigeon;
     public PigeonMover pigeonMover;
     public GameObject weaponHolder;
 

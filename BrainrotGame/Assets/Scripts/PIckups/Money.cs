@@ -5,7 +5,6 @@ using UnityEngine.UI;
 
 public class Money : Pickup
 {
-    public Pigeon pigeon;
     public Text txtMoney;
 
     // Start is called before the first frame update

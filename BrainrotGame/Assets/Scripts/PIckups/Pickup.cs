@@ -4,7 +4,8 @@ using UnityEngine;
 
 public class Pickup : MonoBehaviour
 {
-    public float speed;
+    public float speed = 5;
+    public Pigeon pigeon;
 
     // Start is called before the first frame update
     void Start()

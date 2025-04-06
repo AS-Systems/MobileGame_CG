@@ -9,7 +9,8 @@ public class Pigeon : MonoBehaviour
     public Slider healthBar;
 
     public int money = 0;
-    public float health = 1000;
+    public float maxHealth = 100;
+    public float health;
     public float[] weaponsDamages;
     public int weaponIndex;
 
@@ -17,6 +18,7 @@ public class Pigeon : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        health = maxHealth;
         healthBar= GameObject.Find("PigeonHealthBar").GetComponent<Slider>();
         healthBar.maxValue = health;
     }
