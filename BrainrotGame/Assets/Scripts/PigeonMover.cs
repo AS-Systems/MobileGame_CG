@@ -33,6 +33,31 @@ public class PigeonMover : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+
+        if (Input.touchCount > 0)
+        {
+            Touch touch = Input.GetTouch(0);
+
+            Vector3 touchPosition = GetTouchWorldPosition();
+
+            touchPosition.z = transform.position.z; // Ensure Z stays the same
+
+            switch (touch.phase)
+            {
+                case TouchPhase.Began:
+                    transform.position = new Vector3(touchPosition.x, transform.position.y, transform.position.z);
+                    break;
+
+                case TouchPhase.Stationary:
+                case TouchPhase.Moved:
+                    float newX = Mathf.Lerp(transform.position.x, touchPosition.x, Time.deltaTime * 10f);
+                    transform.position = new Vector3(newX, transform.position.y, transform.position.z);
+                    break;
+            }
+        }
+
+
+
         bulletFrequency = weaponsFrequencies[weaponIndex];
 
         if(Input.GetKey(KeyCode.D))
@@ -55,6 +80,16 @@ public class PigeonMover : MonoBehaviour
 
         timeSinceLastBullet += Time.deltaTime;
 
+    }
+
+    Vector3 GetTouchWorldPosition()
+    {
+        Vector3 touchPosScreen = Input.GetTouch(0).position;
+
+        Vector3 touchPosWorld = Camera.main.ScreenToWorldPoint(new Vector3(touchPosScreen.x, touchPosScreen.y, Mathf.Abs(transform.position.z - Camera.main.transform.position.z)));
+
+
+        return touchPosWorld;
     }
 
     void shoot()
