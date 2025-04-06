@@ -12,10 +12,10 @@ public class GameController : MonoBehaviour
     public int[] unlockedWeapons;
     public float[] chanceOfWeaponChoice;
     public float chanceOfWeaponSpawning;
-    private float timeSiceWeaponSpawned;
+    public float timeSiceWeaponSpawned;
     public float minTimeBetweenWeaponSpawns;
     public float delayBetweenTryingToSpawnWeapon;
-    private float timeSinceTryingToSpawnWeapon;
+    public float timeSinceTryingToSpawnWeapon;
 
     // Start is called before the first frame update
     void Start()
@@ -30,7 +30,7 @@ public class GameController : MonoBehaviour
         timeSiceWeaponSpawned += Time.deltaTime;
         timeSinceTryingToSpawnWeapon += Time.deltaTime;
 
-        if(timeSiceWeaponSpawned > minTimeBetweenWeaponSpawns && timeSinceTryingToSpawnWeapon < delayBetweenTryingToSpawnWeapon)
+        if(timeSiceWeaponSpawned > minTimeBetweenWeaponSpawns && timeSinceTryingToSpawnWeapon > delayBetweenTryingToSpawnWeapon)
         {
             timeSinceTryingToSpawnWeapon = 0f;
             float rand = Random.Range(0f, 1f);
@@ -58,6 +58,10 @@ public class GameController : MonoBehaviour
             cumulative += chanceOfWeaponChoice[i];
             if (randForChoice <= cumulative)
             {
+                if (unlockedWeapons[i] == 0)
+                {
+                    return;
+                }
                 float randForSide = Random.Range(0f, 1f);
                 if(randForSide < 0.5f)
                 {

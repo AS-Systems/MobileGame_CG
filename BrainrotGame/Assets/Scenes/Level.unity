@@ -441,7 +441,7 @@ MonoBehaviour:
   - {fileID: 2078099758394530692, guid: 75391039c2246a24e83a09e914e8463e, type: 3}
   spawnLeft: {fileID: 0}
   spawnRight: {fileID: 0}
-  unlockedWeapons: 01000000000000000000000000000000000000000000000000000000
+  unlockedWeapons: 01000000000000000000000000000000000000000100000000000000
   chanceOfWeaponChoice:
   - 0.25
   - 0.35
@@ -451,8 +451,10 @@ MonoBehaviour:
   - 0.1
   - 0.01
   chanceOfWeaponSpawning: 0.1
-  minTimeBetweenWeaponSpawns: 10
-  delayBetweenTryingToSpawnWeapon: 2
+  timeSiceWeaponSpawned: 0
+  minTimeBetweenWeaponSpawns: 1
+  delayBetweenTryingToSpawnWeapon: 1
+  timeSinceTryingToSpawnWeapon: 0
 --- !u!114 &856713468
 MonoBehaviour:
   m_ObjectHideFlags: 0
