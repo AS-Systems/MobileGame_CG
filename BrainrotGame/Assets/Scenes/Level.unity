@@ -1650,10 +1650,10 @@ MonoBehaviour:
   weaponsModels:
   - {fileID: 101907351567660728, guid: 70c443f438373074ea507d275cb35612, type: 3}
   - {fileID: 1423399227528392315, guid: 026552abe807d634bbc85a97629a77c9, type: 3}
-  - {fileID: 0}
+  - {fileID: 5084661807745518972, guid: 98cdb1085f9fbe84f9d1b3906c4dcc0f, type: 3}
   - {fileID: 2521610925977016482, guid: b4ccbbb2b5452c141a992f00c2b2a95c, type: 3}
   - {fileID: 8132220737284012997, guid: 167df05f4560e974ea37569f0f9a89e9, type: 3}
-  - {fileID: 0}
+  - {fileID: 6769412963354939597, guid: 3c6c2ec601a0ffa44945f7c30ebfdc57, type: 3}
   - {fileID: 4743856782011497051, guid: 8094863b3b9357548a0a7614f89fc66a, type: 3}
   healthBar: {fileID: 0}
   money: 0
