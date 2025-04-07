@@ -23,6 +23,8 @@ public class Money : Pickup
     protected override void picked()
     {
         pigeon.money++;
+        PlayerPrefs.SetInt("moneyLevel", pigeon.money);
+        PlayerPrefs.SetInt("money", PlayerPrefs.GetInt("money") + 1);
         txtMoney.text = pigeon.money.ToString();
         Destroy(gameObject);
     }

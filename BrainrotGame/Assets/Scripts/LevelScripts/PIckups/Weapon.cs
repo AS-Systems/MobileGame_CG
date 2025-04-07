@@ -10,7 +10,7 @@ public class Weapon : Pickup
 
     Vector3 originalWeaponHolderPos;
 
-    // TO DO: On pickup
+
     // Start is called before the first frame update
     void Start()
     {
