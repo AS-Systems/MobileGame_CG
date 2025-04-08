@@ -447,8 +447,8 @@ MonoBehaviour:
   - {fileID: 3352918141581111243, guid: 12aa088a3a7ff544bb925c6015857b98, type: 3}
   - {fileID: 7016117982010657373, guid: e61d34a5456f37c4487a09486476cf37, type: 3}
   - {fileID: 3321506593731576513, guid: ea9c92eeb8bdf1e41ab7909270ab6fd1, type: 3}
-  spawnLeft: {fileID: 0}
-  spawnRight: {fileID: 0}
+  spawnLeft: {fileID: 867458266}
+  spawnRight: {fileID: 276521283}
   unlockedWeapons: 01000000000000000000000000000000000000000100000000000000
   chanceOfWeaponChoice:
   - 0.25
@@ -469,6 +469,7 @@ MonoBehaviour:
   minTimeBetweenPickupsSpawns: 5
   delayBetweenTryingToSpawnEnemy: 0.5
   delayBetweenTryingToSpawnPickup: 2
+  currentLevel: 0
 --- !u!1 &867458266
 GameObject:
   m_ObjectHideFlags: 0
@@ -1505,6 +1506,118 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 730107189405985794, guid: 70c443f438373074ea507d275cb35612, type: 3}
   m_PrefabInstance: {fileID: 1760186368}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &1958545521
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1958545522}
+  - component: {fileID: 1958545525}
+  - component: {fileID: 1958545524}
+  - component: {fileID: 1958545523}
+  - component: {fileID: 1958545526}
+  m_Layer: 14
+  m_Name: FinishingLineCollider
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1958545522
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1958545521}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: -1.43, z: 64.87}
+  m_LocalScale: {x: 10.684, y: 0.07, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 19
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!65 &1958545523
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1958545521}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 1, y: 49.95, z: 1}
+  m_Center: {x: 0, y: 0, z: 0}
+--- !u!23 &1958545524
+MeshRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1958545521}
+  m_Enabled: 1
+  m_CastShadows: 1
+  m_ReceiveShadows: 1
+  m_DynamicOccludee: 1
+  m_StaticShadowCaster: 0
+  m_MotionVectors: 1
+  m_LightProbeUsage: 1
+  m_ReflectionProbeUsage: 1
+  m_RayTracingMode: 2
+  m_RayTraceProcedural: 0
+  m_RenderingLayerMask: 1
+  m_RendererPriority: 0
+  m_Materials:
+  - {fileID: 2100000, guid: 96bb4483e5d79a34d81567877b037ca2, type: 2}
+  m_StaticBatchInfo:
+    firstSubMesh: 0
+    subMeshCount: 0
+  m_StaticBatchRoot: {fileID: 0}
+  m_ProbeAnchor: {fileID: 0}
+  m_LightProbeVolumeOverride: {fileID: 0}
+  m_ScaleInLightmap: 1
+  m_ReceiveGI: 1
+  m_PreserveUVs: 0
+  m_IgnoreNormalsForChartDetection: 0
+  m_ImportantGI: 0
+  m_StitchLightmapSeams: 1
+  m_SelectedEditorRenderState: 3
+  m_MinimumChartSize: 4
+  m_AutoUVMaxDistance: 0.5
+  m_AutoUVMaxAngle: 89
+  m_LightmapParameters: {fileID: 0}
+  m_SortingLayerID: 0
+  m_SortingLayer: 0
+  m_SortingOrder: 0
+  m_AdditionalVertexStreams: {fileID: 0}
+--- !u!33 &1958545525
+MeshFilter:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1958545521}
+  m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!114 &1958545526
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1958545521}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6d7c9f53bc996ea4aa7b44b6061c74b9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  speed: 5
+  pigeon: {fileID: 0}
 --- !u!1 &2090884094
 GameObject:
   m_ObjectHideFlags: 0

@@ -524,7 +524,7 @@ GameObject:
   - component: {fileID: 1083625071}
   - component: {fileID: 1083625070}
   m_Layer: 5
-  m_Name: txtMoney
+  m_Name: txtEarnedMoney
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -719,7 +719,7 @@ GameObject:
   - component: {fileID: 1680716188}
   - component: {fileID: 1680716187}
   m_Layer: 5
-  m_Name: txtMoney (1)
+  m_Name: txtMoney
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -934,6 +934,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 98d368d3c21381345b7dad8592d2cf39, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  txtMoney: {fileID: 1680716187}
 --- !u!1 &2064080618
 GameObject:
   m_ObjectHideFlags: 0

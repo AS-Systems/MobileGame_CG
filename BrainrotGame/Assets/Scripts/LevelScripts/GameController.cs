@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Rendering;
+using UnityEngine.SceneManagement;
 
 public class GameController : MonoBehaviour
 {
@@ -30,9 +31,13 @@ public class GameController : MonoBehaviour
     private float timeSinceTryingToSpawnWeapon;
     private float timeSiceWeaponSpawned;
 
+    public int currentLevel;
+
     // Start is called before the first frame update
     void Start()
     {
+        currentLevel = int.Parse(SceneManager.GetActiveScene().name);
+        PlayerPrefs.SetInt("level", currentLevel);
         spawnLeft = GameObject.Find("SpawnLeft");
         spawnRight = GameObject.Find("SpawnRight");
         deserialiseWeapons();
