@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 public class Pigeon : MonoBehaviour
 {
@@ -45,5 +46,15 @@ public class Pigeon : MonoBehaviour
         }
 
         healthBar.value = health;
+
+        if(health <= 0)
+        {
+            Died();
+        }
+    }
+
+    void Died()
+    {
+        SceneManager.LoadScene("EndViewDeath");
     }
 }
