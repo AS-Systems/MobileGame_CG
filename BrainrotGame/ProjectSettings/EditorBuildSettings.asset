@@ -29,4 +29,31 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/EndViewDeath.unity
     guid: 1ce7b1d9ce3770145a7296fd45c111e9
+  - enabled: 1
+    path: Assets/Scenes/Levels/2.unity
+    guid: 13fa9ac2e70f4964da61f24f6493c0be
+  - enabled: 1
+    path: Assets/Scenes/Levels/3.unity
+    guid: 348722a65e471ba47a705e7540f83a59
+  - enabled: 1
+    path: Assets/Scenes/Levels/4.unity
+    guid: f80074858deea784a8c04ef15c9946aa
+  - enabled: 1
+    path: Assets/Scenes/Levels/5.unity
+    guid: 0cedf9ce878614548af61a97fb6bce80
+  - enabled: 1
+    path: Assets/Scenes/Levels/6.unity
+    guid: 2899334bf8398ff47b8689da0b2aee8c
+  - enabled: 1
+    path: Assets/Scenes/Levels/7.unity
+    guid: 6a1fd095b38b96749a905f155e8117b4
+  - enabled: 1
+    path: Assets/Scenes/Levels/8.unity
+    guid: 398355b57bb6d96459d008113d288d71
+  - enabled: 1
+    path: Assets/Scenes/Levels/9.unity
+    guid: 99d11c10e0f268a4b9b0f8047572bcba
+  - enabled: 1
+    path: Assets/Scenes/Levels/10.unity
+    guid: 6d6e1a314e93ca54f84a566222fa4064
   m_configObjects: {}
