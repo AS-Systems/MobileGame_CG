@@ -5,9 +5,13 @@ using UnityEngine.UI;
 
 public class ShopItem : MonoBehaviour
 {
-    public Text txtPrice;
-    public Text txtMoney;
+    //Script describing one item in the shop
 
+    //Label showing price of the item
+    public Text txtPrice;
+    //Label showing how much money do you have
+    public Text txtMoney;
+    //Index of the item, matching our normal order of weapons from milanote
     public int weaponIndex;
 
     // Start is called before the first frame update

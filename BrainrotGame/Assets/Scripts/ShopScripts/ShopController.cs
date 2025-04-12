@@ -5,28 +5,27 @@ using UnityEngine.UI;
 
 public class ShopController : MonoBehaviour
 {
-    public Text txtMoney;
-    public Text[] itemsPrices;
-    
+    //Script for handling shop menu
 
+    //Label showing at the corner how much money do you have
+    public Text txtMoney;
+    //Array of labels showing prices of items
+    public Text[] itemsPrices;
+    //Value of money
     public int money;
 
-    // Start is called before the first frame update
     void Start()
     {
+        //Load money from playerprefs and show it
         txtMoney = GameObject.Find("txtMoney").GetComponent<Text>();
         money = PlayerPrefs.GetInt("money", 0);
         txtMoney.text = money.ToString();
         LoadBoughtItems();
     }
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
 
     void LoadBoughtItems()
     {
+        //Go through all items and if they are bought, show "Bought!" instead of price
         string weapons = PlayerPrefs.GetInt("weapons", 0).ToString();
         for (int i = 0; i < 7; i++)
         {

@@ -5,6 +5,9 @@ using UnityEngine.SceneManagement;
 
 public class LoadLevel : MonoBehaviour
 {
+    //Script for loading levels after buttons are pressed.
+    //Level number must be set in the inspector in button properties.
+
     public string levelName;
 
     // Start is called before the first frame update

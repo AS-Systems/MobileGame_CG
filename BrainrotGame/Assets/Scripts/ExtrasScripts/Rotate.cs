@@ -4,13 +4,10 @@ using UnityEngine;
 
 public class Rotate : MonoBehaviour
 {
-    public Vector3 rotationSpeed = new Vector3(0, 30, 0); // Y-axis rotation
+    //Script that rotates any object it's attached to.
+    //You can change the speed and axis of rotation in the inspector.
 
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
+    public Vector3 rotationSpeed = new Vector3(0, 30, 0); // Y-axis rotation
 
     void Update()
     {

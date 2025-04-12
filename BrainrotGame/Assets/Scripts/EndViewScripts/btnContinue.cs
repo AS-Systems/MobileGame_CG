@@ -6,27 +6,29 @@ using UnityEngine.UI;
 
 public class btnContinue : MonoBehaviour
 {
-    public Text txtMoney;
+    //Script for managing view after finishing level
 
+    //Label showing how much money was earned during the level
+    public Text txtMoney;
+    //Number of the level that was finished to be able to restart it
     int currentLevel = 1;
+    //Money before level started
     int previousMoney;
+    //Money after level finished
     int money;
 
-    // Start is called before the first frame update
+
     void Start()
     {
+        //Load values from PlayerPrefs
         previousMoney = PlayerPrefs.GetInt("previousMoney");
         money = PlayerPrefs.GetInt("money");
         currentLevel = PlayerPrefs.GetInt("level");
 
+        //Count how much money was gained during the level
         txtMoney.text = (money-previousMoney).ToString();
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
 
     public void ContinueButtonClicked()
     {

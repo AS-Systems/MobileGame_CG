@@ -5,12 +5,17 @@ using UnityEngine.UIElements;
 
 public class ExtrasController : MonoBehaviour
 {
+    //Script for handling showing extras scene
+    //Each "page" is a panel containing text and images
+
+    //Index of the currently shown panel
     public int actualPanelIndex;
+    //Array of all panels that can be shown
     public GameObject[] panels;
 
-    // Start is called before the first frame update
     void Start()
     {
+        //Hide all panels except the first one
         actualPanelIndex = 0;
         for(int i = 1; i < panels.Length; i++)
         {
@@ -18,16 +23,12 @@ public class ExtrasController : MonoBehaviour
         }
     }
 
-    // Update is called once per frame
-    void Update()
-    { 
-        
-    }
-
     public void NextButtonClicked()
     {
+        //Hide actual panel
         panels[actualPanelIndex].gameObject.SetActive(false);
 
+        //Calculate if we're already at the last panel
         if (actualPanelIndex == panels.Length - 1)
         {
             actualPanelIndex = 0;
@@ -36,6 +37,7 @@ public class ExtrasController : MonoBehaviour
         {
             actualPanelIndex++;
         }
+        //Show next/first panel
         panels[actualPanelIndex].SetActive(true);
       
     }
