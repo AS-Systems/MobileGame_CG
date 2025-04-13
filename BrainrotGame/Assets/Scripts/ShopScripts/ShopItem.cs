@@ -25,12 +25,12 @@ public class ShopItem : MonoBehaviour
     {        
     }
 
-    void buttonClicked()
+    public void buttonClicked()
     {
         int price;
         if(int.TryParse(txtPrice.text, out price))
         {
-            if (PlayerPrefs.GetInt("money") >= price)
+            if (int.Parse(txtMoney.text) >= price)
             {
 
                 PlayerPrefs.SetInt("money", PlayerPrefs.GetInt("money") - price);

@@ -21,6 +21,7 @@ public class ShopController : MonoBehaviour
         money = PlayerPrefs.GetInt("money", 0);
         txtMoney.text = money.ToString();
         LoadBoughtItems();
+        
     }
 
     void LoadBoughtItems()
@@ -33,6 +34,7 @@ public class ShopController : MonoBehaviour
             {
                 itemsPrices[i].text = "Bought!";
             }
+
 
         }
     }

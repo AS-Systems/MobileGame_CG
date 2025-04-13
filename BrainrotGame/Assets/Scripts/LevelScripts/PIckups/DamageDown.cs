@@ -4,13 +4,13 @@ using UnityEngine;
 
 public class DamageDown : Pickup
 {
-    // Start is called before the first frame update
+    //Script for the damage down pickup
+
     void Start()
     {
         pigeon = GameObject.Find("Pigeon").GetComponent<Pigeon>();
     }
 
-    // Update is called once per frame
     void Update()
     {
         move();
