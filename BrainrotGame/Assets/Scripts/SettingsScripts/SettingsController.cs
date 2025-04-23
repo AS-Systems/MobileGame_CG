@@ -16,17 +16,16 @@ public class SettingsController : MonoBehaviour
         panel.SetActive(false);
     }
 
-    //TO DO: Use toggle button to mute/unmute sound in whole game.
-    //Choice can be saved in PlayerPrefs
+
     public void Sound()
     {
         if (sound.isOn)
         {
-
+            PlayerPrefs.SetInt("sound", 1);
         }
         else
         {
-
+            PlayerPrefs.SetInt("sound", 0);
         }
     }    
 

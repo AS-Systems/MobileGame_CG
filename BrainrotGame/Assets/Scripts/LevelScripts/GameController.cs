@@ -29,6 +29,7 @@ public class LevelController : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        actualWaveIndex = 0;
         currentLevel = int.Parse(SceneManager.GetActiveScene().name);
         PlayerPrefs.SetInt("level", currentLevel);
         spawnLeft = GameObject.Find("SpawnLeft");
