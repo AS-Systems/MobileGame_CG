@@ -532,10 +532,24 @@ MonoBehaviour:
   - {fileID: 3652925342376485824, guid: c80c6bacced0bc147b0548772c0f0ff7, type: 3}
   - {fileID: 3652925342376485824, guid: c80c6bacced0bc147b0548772c0f0ff7, type: 3}
   - {fileID: 3652925342376485824, guid: c80c6bacced0bc147b0548772c0f0ff7, type: 3}
-  wavesValue: 010000000300000006000000
+  - {fileID: 3652925342376485824, guid: c80c6bacced0bc147b0548772c0f0ff7, type: 3}
+  - {fileID: 3652925342376485824, guid: c80c6bacced0bc147b0548772c0f0ff7, type: 3}
+  - {fileID: 3652925342376485824, guid: c80c6bacced0bc147b0548772c0f0ff7, type: 3}
+  - {fileID: 3652925342376485824, guid: c80c6bacced0bc147b0548772c0f0ff7, type: 3}
+  - {fileID: 3652925342376485824, guid: c80c6bacced0bc147b0548772c0f0ff7, type: 3}
+  - {fileID: 3652925342376485824, guid: c80c6bacced0bc147b0548772c0f0ff7, type: 3}
+  - {fileID: 3652925342376485824, guid: c80c6bacced0bc147b0548772c0f0ff7, type: 3}
+  wavesValue: 01000000030000000600000006000000060000000600000006000000060000000600000006000000
   wavesTimes:
   - 5
   - 2
+  - 4
+  - 4
+  - 4
+  - 4
+  - 4
+  - 4
+  - 4
   - 4
   actualWaveIndex: 0
   enemiesPrefabs:
@@ -2013,7 +2027,7 @@ MonoBehaviour:
   - {fileID: 8132220737284012997, guid: 167df05f4560e974ea37569f0f9a89e9, type: 3}
   - {fileID: 6769412963354939597, guid: 3c6c2ec601a0ffa44945f7c30ebfdc57, type: 3}
   - {fileID: 4743856782011497051, guid: 8094863b3b9357548a0a7614f89fc66a, type: 3}
-  healthBar: {fileID: 0}
+  healthBar: {fileID: 1239910103}
   money: 0
   maxHealth: 100
   health: 100
