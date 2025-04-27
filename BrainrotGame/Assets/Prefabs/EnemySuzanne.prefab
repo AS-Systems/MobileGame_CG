@@ -131,7 +131,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   maximumHealth: 20
-  health: 0
+  health: 20
   damage: 10
   damageFrequency: 1
   pigeon: {fileID: 0}
@@ -149,7 +149,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1f3d10c501ad0b34a919b79bb43adb8c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 2
+  speed: 4
   rb: {fileID: 4499278474922581653}
 --- !u!1 &4499278474468666403
 GameObject:

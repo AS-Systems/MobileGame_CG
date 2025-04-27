@@ -12,6 +12,7 @@ public class Bullet : MonoBehaviour
     public float speed;
     public Enemy enemy;
     public Pigeon pigeon;
+    public float destroyZDistance;
 
     // Start is called before the first frame update
     void Start()
@@ -24,6 +25,11 @@ public class Bullet : MonoBehaviour
     void Update()
     {
         move();
+
+        if (this.transform.position.z > destroyZDistance)
+        {
+            Destroy(gameObject);
+        }
     }
 
     void move()

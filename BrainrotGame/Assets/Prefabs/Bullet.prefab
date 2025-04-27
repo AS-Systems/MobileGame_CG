@@ -115,9 +115,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 20
-  damage: 0
   enemy: {fileID: 0}
   pigeon: {fileID: 0}
+  destroyZDistance: 200
 --- !u!136 &6696581043709018604
 CapsuleCollider:
   m_ObjectHideFlags: 0

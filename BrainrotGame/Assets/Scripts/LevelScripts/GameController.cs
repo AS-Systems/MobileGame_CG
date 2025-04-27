@@ -40,26 +40,31 @@ public class LevelController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if(actualWaveIndex < wavesTimes.Length)
+        if (actualWaveIndex > wavesTypes.Length || actualWaveIndex > wavesValue.Length)
         {
-            if(timeSinceLastWave >= wavesTimes[actualWaveIndex])
+            return; // Prevent out-of-bounds errors
+        }
+        if (actualWaveIndex < wavesTimes.Length)
+        {
+            if(timeSinceLastWave > wavesTimes[actualWaveIndex])
             {
-                if (wavesTypes[actualWaveIndex].name == "Suzanne" || wavesTypes[actualWaveIndex].name == "Dragon" || wavesTypes[actualWaveIndex].name == "Teapot" ||
+                if (wavesTypes[actualWaveIndex].name == "EnemySuzanne" || wavesTypes[actualWaveIndex].name == "EnemyDragon" || wavesTypes[actualWaveIndex].name == "EnemyTeapot" ||
                     wavesTypes[actualWaveIndex].name == "DamageUp" || wavesTypes[actualWaveIndex].name == "DamageDown" || wavesTypes[actualWaveIndex].name == "Immunity" || wavesTypes[actualWaveIndex].name == "Health")
                 {
                     for (int i = 0; i < wavesValue[actualWaveIndex]; i++)
                     {
                         SpawnEnemyOrPowerup(wavesTypes[actualWaveIndex]);
                     }
+                    actualWaveIndex++;
                 }
                 else
                 {
                     SpawnWeapon();
+                    actualWaveIndex++;
                 }
                 timeSinceLastWave = 0;  
             }
-            
-            actualWaveIndex++;
+
         }
 
 
@@ -69,6 +74,8 @@ public class LevelController : MonoBehaviour
 
     }
 
+    //Spawns a random from unlocked weapons at random side of the screen
+    //Chance of which of unlocked weapon will spawn is defined in chanceOfWeaponChoice
     void SpawnWeapon()
     {
         float randForChoice = Random.value;
@@ -100,14 +107,27 @@ public class LevelController : MonoBehaviour
 
     void SpawnEnemyOrPowerup(GameObject gameobject)
     {
+        Vector3 offset = getPositionOffset();
+        float randForSide = Random.Range(0f, 1f);
+        if (randForSide < 0.5f)
+        {
+            Instantiate(gameobject, spawnLeft.transform.position + offset, Quaternion.identity);
+        }
+        else
+        {
+            Instantiate(gameobject, spawnRight.transform.position + offset, Quaternion.identity);
+        }
+
 
     }
 
     Vector3 getPositionOffset()
     {
         Vector3 offset = new Vector3(0, 0, 0);
-        float randForSide = Random.Range(-5f, 5f);
-        offset.x = randForSide;
+        float randForSideX = Random.Range(-2.5f, 2.5f);
+        float randForSideZ = Random.Range(-5f, 5f);
+        offset.x = randForSideX;
+        offset.z = randForSideZ;
         return offset;
     }
 

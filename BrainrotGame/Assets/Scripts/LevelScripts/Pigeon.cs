@@ -28,6 +28,7 @@ public class Pigeon : MonoBehaviour
         health = maxHealth;
         healthBar= GameObject.Find("PigeonHealthBar").GetComponent<Slider>();
         healthBar.maxValue = health;
+        damage = weaponsDamages[weaponIndex];
     }
 
     // Update is called once per frame
