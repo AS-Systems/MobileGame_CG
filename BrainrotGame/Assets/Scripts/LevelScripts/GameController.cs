@@ -124,7 +124,7 @@ public class LevelController : MonoBehaviour
     Vector3 getPositionOffset()
     {
         Vector3 offset = new Vector3(0, 0, 0);
-        float randForSideX = Random.Range(-2.5f, 2.5f);
+        float randForSideX = Random.Range(-1.8f, 1.8f);
         float randForSideZ = Random.Range(-5f, 5f);
         offset.x = randForSideX;
         offset.z = randForSideZ;

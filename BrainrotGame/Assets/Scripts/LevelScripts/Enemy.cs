@@ -12,6 +12,7 @@ public class Enemy : MonoBehaviour
 
     public Pigeon pigeon;
     public Slider healthBar;
+    public Text txtMoney;
     
     public float timeSinceLastDamage;
 
@@ -22,6 +23,7 @@ public class Enemy : MonoBehaviour
         healthBar.maxValue = maximumHealth;
         healthBar.value = health;
         pigeon = GameObject.Find("Pigeon").GetComponent<Pigeon>();
+        txtMoney = GameObject.Find("txtMoney").GetComponent<Text>();
     }
 
     // Update is called once per frame
@@ -51,7 +53,12 @@ public class Enemy : MonoBehaviour
 
     void die()
     {
+        pigeon.money++;
+        PlayerPrefs.SetInt("moneyLevel", pigeon.money);
+        PlayerPrefs.SetInt("money", PlayerPrefs.GetInt("money") + 1);
+        txtMoney.text = pigeon.money.ToString();
         Destroy(gameObject);
+
     }   
     
     void updateHealthBar(float health)
