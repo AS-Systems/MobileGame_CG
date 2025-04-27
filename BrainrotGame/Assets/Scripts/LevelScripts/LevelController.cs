@@ -20,6 +20,7 @@ public class GameController : MonoBehaviour
     public float chanceOfWeaponSpawning;
     public float minTimeBetweenWeaponSpawns;
     public float delayBetweenTryingToSpawnWeapon;
+    public float chanceOfPickupSpawning;
 
     public float minTimeBetweenEnemySpawns;
     public float minTimeBetweenPickupsSpawns;
@@ -80,8 +81,12 @@ public class GameController : MonoBehaviour
         if (timeSincePickupSpawned > minTimeBetweenPickupsSpawns && timeSinceTryingToSpawnPickup > delayBetweenTryingToSpawnPickup)
         {
             timeSinceTryingToSpawnPickup = 0f;
-            float rand = Random.Range(0f, 1f);
-            SpawnPickup();
+            float rand = Random.Range(0f, 1f); 
+            if (rand < chanceOfPickupSpawning) 
+            {
+                timeSincePickupSpawned = 0f; 
+                SpawnPickup();
+            }
         }
 
         if (Input.GetKey(KeyCode.Q))
