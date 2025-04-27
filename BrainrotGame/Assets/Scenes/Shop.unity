@@ -158,7 +158,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 0.000011444092, y: 62.987976}
+  m_AnchoredPosition: {x: 0.000011444092, y: 62.987793}
   m_SizeDelta: {x: 18, y: -125.977}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &75444742
@@ -2292,7 +2292,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0.000067658, y: -1920.801}
+  m_AnchoredPosition: {x: 0.000067658, y: 0.000038146973}
   m_SizeDelta: {x: 1536, y: 4307.447}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &724967049
@@ -3316,8 +3316,8 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 75444742}
   m_HandleRect: {fileID: 75444741}
   m_Direction: 2
-  m_Value: 1.0000001
-  m_Size: 0.10814877
+  m_Value: 0.5
+  m_Size: 0.36385572
   m_NumberOfSteps: 0
   m_OnValueChanged:
     m_PersistentCalls:
@@ -3841,7 +3841,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0cd44c1031e13a943bb63640046fad76, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_UiScaleMode: 0
+  m_UiScaleMode: 1
   m_ReferencePixelsPerUnit: 100
   m_ScaleFactor: 1
   m_ReferenceResolution: {x: 800, y: 600}
@@ -4829,7 +4829,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 0, y: -38.578003}
+  m_AnchoredPosition: {x: 0, y: -38.57788}
   m_SizeDelta: {x: 0, y: -77.155}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1891988283
