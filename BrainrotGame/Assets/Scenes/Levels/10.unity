@@ -530,13 +530,18 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   wavesTypes:
   - {fileID: 3652925342376485824, guid: c80c6bacced0bc147b0548772c0f0ff7, type: 3}
-  - {fileID: 3652925342376485824, guid: c80c6bacced0bc147b0548772c0f0ff7, type: 3}
-  - {fileID: 3652925342376485824, guid: c80c6bacced0bc147b0548772c0f0ff7, type: 3}
-  wavesValue: 010000000300000006000000
+  - {fileID: 778483811870331543, guid: d728c3467c7699e4390d6764f6dd0b92, type: 3}
+  - {fileID: 778483811870331543, guid: d728c3467c7699e4390d6764f6dd0b92, type: 3}
+  - {fileID: 7016117982010657373, guid: e61d34a5456f37c4487a09486476cf37, type: 3}
+  - {fileID: 7093671363962813409, guid: 07a905aaeb78c8c4a89debac23fd1015, type: 3}
+  - {fileID: 3392051743151776734, guid: 600cd164620d2d94e827406768d9c6d5, type: 3}
+  wavesValue: 0500000001000000010000000100000001000000
   wavesTimes:
-  - 5
   - 2
   - 4
+  - 4
+  - 1
+  - 10
   actualWaveIndex: 0
   enemiesPrefabs:
   - {fileID: 3652925342376485824, guid: c80c6bacced0bc147b0548772c0f0ff7, type: 3}

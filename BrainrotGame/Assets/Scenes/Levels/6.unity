@@ -530,27 +530,27 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   wavesTypes:
   - {fileID: 3652925342376485824, guid: c80c6bacced0bc147b0548772c0f0ff7, type: 3}
+  - {fileID: 2262210247127972486, guid: 6de78f170975c474ea9373db82b34214, type: 3}
   - {fileID: 3652925342376485824, guid: c80c6bacced0bc147b0548772c0f0ff7, type: 3}
   - {fileID: 3652925342376485824, guid: c80c6bacced0bc147b0548772c0f0ff7, type: 3}
+  - {fileID: 2996923292375943834, guid: db8a3caaf3e67e24da9977c9e035f910, type: 3}
+  - {fileID: 3321506593731576513, guid: ea9c92eeb8bdf1e41ab7909270ab6fd1, type: 3}
   - {fileID: 3652925342376485824, guid: c80c6bacced0bc147b0548772c0f0ff7, type: 3}
+  - {fileID: 2262210247127972486, guid: 6de78f170975c474ea9373db82b34214, type: 3}
   - {fileID: 3652925342376485824, guid: c80c6bacced0bc147b0548772c0f0ff7, type: 3}
-  - {fileID: 3652925342376485824, guid: c80c6bacced0bc147b0548772c0f0ff7, type: 3}
-  - {fileID: 3652925342376485824, guid: c80c6bacced0bc147b0548772c0f0ff7, type: 3}
-  - {fileID: 3652925342376485824, guid: c80c6bacced0bc147b0548772c0f0ff7, type: 3}
-  - {fileID: 3652925342376485824, guid: c80c6bacced0bc147b0548772c0f0ff7, type: 3}
-  - {fileID: 3652925342376485824, guid: c80c6bacced0bc147b0548772c0f0ff7, type: 3}
-  wavesValue: 01000000030000000600000006000000060000000600000006000000060000000600000006000000
+  - {fileID: 4362735638065769448, guid: 57e0a1d73b893a244904a3ee85eae4c7, type: 3}
+  wavesValue: 05000000010000000a0000000a00000001000000010000000a000000010000000f0000000a000000
   wavesTimes:
-  - 5
   - 2
-  - 4
-  - 4
-  - 4
-  - 4
-  - 4
-  - 4
-  - 4
-  - 4
+  - 5
+  - 6
+  - 6
+  - 10
+  - 3
+  - 8
+  - 10
+  - 5
+  - 10
   actualWaveIndex: 0
   enemiesPrefabs:
   - {fileID: 3652925342376485824, guid: c80c6bacced0bc147b0548772c0f0ff7, type: 3}
