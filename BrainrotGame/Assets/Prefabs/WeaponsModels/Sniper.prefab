@@ -175,6 +175,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 6249335564697487991}
+  - component: {fileID: -890555861919969405}
   m_Layer: 0
   m_Name: Sniper
   m_TagString: Untagged
@@ -190,7 +191,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6769412963354939597}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 5.1879025, y: 0.64451, z: 1.0935}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 0.63599, y: 0.63599, z: 0.63599}
   m_ConstrainProportionsScale: 1
   m_Children:
@@ -199,3 +200,23 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &-890555861919969405
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6769412963354939597}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: da659b64742db614d914222d6029c2a1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  rotate: 1
+  positionate: 1
+  rotX: 0
+  rotY: 0
+  rotZ: 0
+  posX: 0
+  posY: 0
+  posZ: 2
