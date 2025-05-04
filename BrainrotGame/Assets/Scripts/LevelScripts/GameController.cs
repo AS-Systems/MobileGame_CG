@@ -11,9 +11,7 @@ public class LevelController : MonoBehaviour
     public float[] wavesTimes;
     public int actualWaveIndex;
 
-    public GameObject[] enemiesPrefabs;
     public GameObject[] weaponsPrefabs;
-    public GameObject[] pickupsPrefabs;
     public GameObject spawnLeft;
     public GameObject spawnRight;
 
@@ -48,7 +46,7 @@ public class LevelController : MonoBehaviour
         {
             if(timeSinceLastWave > wavesTimes[actualWaveIndex])
             {
-                if (wavesTypes[actualWaveIndex].name == "EnemySuzanne" || wavesTypes[actualWaveIndex].name == "EnemyDragon" || wavesTypes[actualWaveIndex].name == "EnemyTeapot" ||
+                if (wavesTypes[actualWaveIndex].name == "EnemySuzanne" || wavesTypes[actualWaveIndex].name == "EnemyDragon 1" || wavesTypes[actualWaveIndex].name == "EnemyTeapot" ||
                     wavesTypes[actualWaveIndex].name == "DamageUp" || wavesTypes[actualWaveIndex].name == "DamageDown" || wavesTypes[actualWaveIndex].name == "Immunity" || wavesTypes[actualWaveIndex].name == "Health")
                 {
                     for (int i = 0; i < wavesValue[actualWaveIndex]; i++)

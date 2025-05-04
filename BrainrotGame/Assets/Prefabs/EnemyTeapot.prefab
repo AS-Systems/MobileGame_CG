@@ -131,6 +131,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   speed: 0.5
   rb: {fileID: 7982469318494460351}
+  rotX: -90
+  rotY: 90
+  rotZ: 180
 --- !u!114 &7982469318494460350
 MonoBehaviour:
   m_ObjectHideFlags: 0
