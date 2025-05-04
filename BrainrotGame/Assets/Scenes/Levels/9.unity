@@ -533,12 +533,12 @@ MonoBehaviour:
   - {fileID: 263199778384182678, guid: bae4caee70a3c21429d65835c4b458b6, type: 3}
   - {fileID: 3652925342376485824, guid: c80c6bacced0bc147b0548772c0f0ff7, type: 3}
   - {fileID: 3321506593731576513, guid: ea9c92eeb8bdf1e41ab7909270ab6fd1, type: 3}
-  - {fileID: 9074817594128366493, guid: 2bffa01acda1cc048a9007f9137b8a86, type: 3}
+  - {fileID: 6490037827284096532, guid: a416e804bc58e7e4d9091c55c44dfb8e, type: 3}
   - {fileID: 3652925342376485824, guid: c80c6bacced0bc147b0548772c0f0ff7, type: 3}
   - {fileID: 3321506593731576513, guid: ea9c92eeb8bdf1e41ab7909270ab6fd1, type: 3}
   - {fileID: 4362735638065769448, guid: 57e0a1d73b893a244904a3ee85eae4c7, type: 3}
   - {fileID: 778483811870331543, guid: d728c3467c7699e4390d6764f6dd0b92, type: 3}
-  - {fileID: 9074817594128366493, guid: 2bffa01acda1cc048a9007f9137b8a86, type: 3}
+  - {fileID: 6490037827284096532, guid: a416e804bc58e7e4d9091c55c44dfb8e, type: 3}
   wavesValue: 0a000000010000000a00000002000000030000000600000002000000060000000600000004000000
   wavesTimes:
   - 5
@@ -552,10 +552,6 @@ MonoBehaviour:
   - 4
   - 15
   actualWaveIndex: 0
-  enemiesPrefabs:
-  - {fileID: 3652925342376485824, guid: c80c6bacced0bc147b0548772c0f0ff7, type: 3}
-  - {fileID: 9074817594128366493, guid: 2bffa01acda1cc048a9007f9137b8a86, type: 3}
-  - {fileID: 3392051743151776734, guid: 600cd164620d2d94e827406768d9c6d5, type: 3}
   weaponsPrefabs:
   - {fileID: 2262210247127972486, guid: 6de78f170975c474ea9373db82b34214, type: 3}
   - {fileID: 1211875251636878815, guid: b2578f65943c79c418a9fefe825aa7a9, type: 3}
@@ -564,7 +560,6 @@ MonoBehaviour:
   - {fileID: 778483811870331543, guid: d728c3467c7699e4390d6764f6dd0b92, type: 3}
   - {fileID: 4178844365293904429, guid: faddbed9caa6a734785ca6b846ff4eab, type: 3}
   - {fileID: 2078099758394530692, guid: 75391039c2246a24e83a09e914e8463e, type: 3}
-  pickupsPrefabs: []
   spawnLeft: {fileID: 867458266}
   spawnRight: {fileID: 276521283}
   unlockedWeapons: 00000000000000000000000000000000000000000000000000000000
