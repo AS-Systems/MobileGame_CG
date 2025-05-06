@@ -6,24 +6,9 @@ using UnityEngine;
 
 public class PigeonMover : MonoBehaviour
 {
-
-    public GameObject bullet;
     public GameObject pigeon;
     public GameObject weaponHolder;
-
-    public float[] weaponsFrequencies;
-
-    public int weaponIndex;
-    public float bulletFrequency;
     public float speed;
-
-    private float timeSinceLastBullet;
-
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
 
     // Update is called once per frame
     void Update()
@@ -51,10 +36,6 @@ public class PigeonMover : MonoBehaviour
             }
         }
 
-
-
-        bulletFrequency = weaponsFrequencies[weaponIndex];
-
         if(Input.GetKey(KeyCode.D))
         {
             moveLeft();
@@ -63,13 +44,6 @@ public class PigeonMover : MonoBehaviour
         {
             moveRight();
         }
-
-        if (timeSinceLastBullet >= bulletFrequency)
-        {
-            shoot();
-            timeSinceLastBullet = 0;
-        }
-        timeSinceLastBullet += Time.deltaTime;
 
     }
 
@@ -81,11 +55,6 @@ public class PigeonMover : MonoBehaviour
 
 
         return touchPosWorld;
-    }
-
-    void shoot()
-    {
-        GameObject newBullet = Instantiate(bullet, weaponHolder.transform.position, Quaternion.identity);
     }
 
     void moveLeft()

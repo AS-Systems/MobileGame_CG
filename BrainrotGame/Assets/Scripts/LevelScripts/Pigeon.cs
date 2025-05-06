@@ -13,8 +13,11 @@ public class Pigeon : MonoBehaviour
     public float maxHealth = 100;
     public float health;
     public float[] weaponsDamages;
+    public float[] weaponsBulletSpeeds;
+    public float[] weaponsReloadSpeeds;
     public int weaponIndex;
     public float damage;
+    public float bulletSpeed;
     public bool immunity;
 
     public float immunityTime = 10f;
@@ -29,6 +32,7 @@ public class Pigeon : MonoBehaviour
         healthBar= GameObject.Find("PigeonHealthBar").GetComponent<Slider>();
         healthBar.maxValue = health;
         damage = weaponsDamages[weaponIndex];
+        bulletSpeed = weaponsBulletSpeeds[weaponIndex];
     }
 
     // Update is called once per frame

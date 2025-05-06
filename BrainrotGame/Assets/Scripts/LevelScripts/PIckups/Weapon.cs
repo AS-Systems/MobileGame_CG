@@ -56,7 +56,6 @@ public class Weapon : Pickup
 
 
         pigeon.weaponIndex = weaponIndex;
-        pigeonMover.weaponIndex = weaponIndex;
         pigeon.damage = pigeon.weaponsDamages[weaponIndex];
         foreach(Transform child in weaponHolder.transform)
         {

@@ -4,21 +4,20 @@ using UnityEngine;
 
 public class Bullet : MonoBehaviour
 {
-    // *** TO DO *** //
-    // Make bullet move and hurt enemies
-    // float speed - How fast bullet moves
-    // bullet collissions should be checked only with Enemy layer.
-
+    public GameObject pigeon;
+    public float damage;
     public float speed;
     public Enemy enemy;
-    public Pigeon pigeon;
+    public HeldWeapon weapon;
     public float destroyZDistance;
 
     // Start is called before the first frame update
     void Start()
     {
-        pigeon = GameObject.Find("Pigeon").GetComponent<Pigeon>();
-
+        pigeon = GameObject.Find("Pigeon");
+        weapon = FindWeaponInChildren(pigeon.transform);
+        speed = weapon.bulletSpeed;
+        damage = weapon.damage;
     }
 
     // Update is called once per frame
@@ -45,10 +44,36 @@ public class Bullet : MonoBehaviour
             Enemy enemy = other.gameObject.GetComponent<Enemy>();
             if(enemy != null)
             {
-                enemy.takeDamage(pigeon.damage);
+                enemy.takeDamage(damage);
             }
             Destroy(gameObject);
         }
+    }
+
+    private HeldWeapon FindWeaponInChildren(Transform parent)
+    {
+        foreach (Transform child in parent)
+        {
+            // Check if the child is on the target layer
+            if (child.gameObject.layer == 9)
+            {
+                // Try to get the Weapon component
+                HeldWeapon weapon = child.GetComponent<HeldWeapon>();
+                if (weapon != null)
+                {
+                    return weapon; // Return the found Weapon
+                }
+            }
+
+            // Recursively search in the child's children
+            HeldWeapon foundInChild = FindWeaponInChildren(child);
+            if (foundInChild != null)
+            {
+                return foundInChild; // Return the found Weapon from deeper in the hierarchy
+            }
+        }
+
+        return null; // No Weapon found in this branch
     }
 
 }
