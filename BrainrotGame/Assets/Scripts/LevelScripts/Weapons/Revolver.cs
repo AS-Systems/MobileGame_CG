@@ -4,9 +4,9 @@ using UnityEngine;
 
 public class Revolver : HeldWeapon
 {
-    public float numberOfBullets;
-    public float timeToReload;
-    public float timeSinceReloadStarted;
+    public float numberOfBullets;           //How many bullets in the series may be shot
+    public float timeToReload;              //How long it takes to reload the series
+    private float timeSinceReloadStarted;    //How long since we started reloading
 
     private void Update()
     {
@@ -17,6 +17,7 @@ public class Revolver : HeldWeapon
 
     protected override void shoot()
     {
+        //If you can't shoot yet return, else Instanitate bullet and count how many are left.
         if (time < reloadSpeed || timeSinceReloadStarted < timeToReload)
         {
             return;

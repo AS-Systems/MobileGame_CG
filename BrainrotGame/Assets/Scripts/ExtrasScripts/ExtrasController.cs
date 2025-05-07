@@ -8,10 +8,8 @@ public class ExtrasController : MonoBehaviour
     //Script for handling showing extras scene
     //Each "page" is a panel containing text and images
 
-    //Index of the currently shown panel
-    public int actualPanelIndex;
-    //Array of all panels that can be shown
-    public GameObject[] panels;
+    private int actualPanelIndex;   //Index of the currently shown panel
+    public GameObject[] panels;     //Array of all panels that can be shown
 
     void Start()
     {
@@ -44,6 +42,7 @@ public class ExtrasController : MonoBehaviour
 
     public void PreviousButtonClicked()
     {
+        //Similar calculations but for previous panels
         panels[actualPanelIndex].gameObject.SetActive(false);
 
         if (actualPanelIndex == 0)

@@ -4,30 +4,41 @@ using UnityEngine;
 using UnityEngine.Rendering;
 using UnityEngine.SceneManagement;
 
-public class LevelController : MonoBehaviour
+public class GameController : MonoBehaviour
 {
-    public GameObject[] wavesTypes;
-    public int[] wavesValue;
-    public float[] wavesTimes;
-    public int actualWaveIndex;
+    //Script for handling the infinite mode gameplay
 
-    public GameObject[] weaponsPrefabs;
-    public GameObject spawnLeft;
-    public GameObject spawnRight;
+    public GameObject[] enemiesPrefabs;     //Array of enemies possible to spawn
+    public GameObject[] weaponsPrefabs;     //Array of weapons possible to spawn
+    public GameObject[] pickupsPrefabs;     //Array of pickups possible to spawn
+    public GameObject spawnLeft;            //Left Empty spawn point
+    public GameObject spawnRight;           //Right Empty spawn point
 
-    public int[] unlockedWeapons;
-    public float[] chanceOfWeaponChoice;
-    public float[] chanceOfEnemyChoice;
-    public float chanceOfWeaponSpawning;
+    private int[] unlockedWeapons;          //Weapons bought in store
+    public float[] chanceOfWeaponChoice;    //Array showing with what chance each weapon may spawn (legacy solution)
+    public float[] chanceOfEnemyChoice;     //Array showing with what chance each enemy may spawn (legacy solution)
+    public float chanceOfWeaponSpawning;    
+    public float minTimeBetweenWeaponSpawns;
+    public float delayBetweenTryingToSpawnWeapon;
+    public float chanceOfPickupSpawning;
 
-    public float timeSinceLastWave;
+    public float minTimeBetweenEnemySpawns;
+    public float minTimeBetweenPickupsSpawns;
+    public float delayBetweenTryingToSpawnEnemy;
+    public float delayBetweenTryingToSpawnPickup;
+
+    private float timeSinceTryingToSpawnEnemy;
+    private float timeSinceTryingToSpawnPickup;
+    private float timeSinceEnemySpawned;
+    private float timeSincePickupSpawned;
+    private float timeSinceTryingToSpawnWeapon;
+    private float timeSiceWeaponSpawned;
 
     public int currentLevel;
 
     // Start is called before the first frame update
     void Start()
     {
-        actualWaveIndex = 0;
         currentLevel = int.Parse(SceneManager.GetActiveScene().name);
         PlayerPrefs.SetInt("level", currentLevel);
         spawnLeft = GameObject.Find("SpawnLeft");
@@ -38,42 +49,61 @@ public class LevelController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (actualWaveIndex > wavesTypes.Length || actualWaveIndex > wavesValue.Length)
+        timeSiceWeaponSpawned += Time.deltaTime;
+        timeSinceTryingToSpawnWeapon += Time.deltaTime;
+        timeSinceTryingToSpawnEnemy += Time.deltaTime;
+        timeSinceTryingToSpawnPickup += Time.deltaTime;
+        timeSinceEnemySpawned += Time.deltaTime;
+        timeSincePickupSpawned += Time.deltaTime;
+
+        if(timeSiceWeaponSpawned > minTimeBetweenWeaponSpawns && timeSinceTryingToSpawnWeapon > delayBetweenTryingToSpawnWeapon)
         {
-            return; // Prevent out-of-bounds errors
-        }
-        if (actualWaveIndex < wavesTimes.Length)
-        {
-            if(timeSinceLastWave > wavesTimes[actualWaveIndex])
+            timeSinceTryingToSpawnWeapon = 0f;
+            float rand = Random.Range(0f, 1f);
+            if(rand < chanceOfWeaponSpawning)
             {
-                if (wavesTypes[actualWaveIndex].name == "EnemySuzanne" || wavesTypes[actualWaveIndex].name == "EnemyDragon 1" || wavesTypes[actualWaveIndex].name == "EnemyTeapot" ||
-                    wavesTypes[actualWaveIndex].name == "DamageUp" || wavesTypes[actualWaveIndex].name == "DamageDown" || wavesTypes[actualWaveIndex].name == "Immunity" || wavesTypes[actualWaveIndex].name == "Health")
-                {
-                    for (int i = 0; i < wavesValue[actualWaveIndex]; i++)
-                    {
-                        SpawnEnemyOrPowerup(wavesTypes[actualWaveIndex]);
-                    }
-                    actualWaveIndex++;
-                }
-                else
-                {
-                    SpawnWeapon();
-                    actualWaveIndex++;
-                }
-                timeSinceLastWave = 0;  
+                timeSiceWeaponSpawned = 0f;
+                SpawnWeapon();
             }
-
         }
 
+        if (timeSinceEnemySpawned > minTimeBetweenEnemySpawns && timeSinceTryingToSpawnEnemy > delayBetweenTryingToSpawnEnemy)
+        {
+            timeSinceTryingToSpawnEnemy = 0f;
+            float rand = Random.Range(0f, 1f);
+            if (rand < chanceOfWeaponSpawning)
+            {
+                timeSinceEnemySpawned = 0f;
+                SpawnEnemy();
+            }
+        }
 
-        timeSinceLastWave += Time.deltaTime;
+        if (timeSincePickupSpawned > minTimeBetweenPickupsSpawns && timeSinceTryingToSpawnPickup > delayBetweenTryingToSpawnPickup)
+        {
+            timeSinceTryingToSpawnPickup = 0f;
+            float rand = Random.Range(0f, 1f); 
+            if (rand < chanceOfPickupSpawning) 
+            {
+                timeSincePickupSpawned = 0f; 
+                SpawnPickup();
+            }
+        }
 
-
+        if (Input.GetKey(KeyCode.Q))
+        {
+            SpawnWeapon();
+        }
+        if (Input.GetKey(KeyCode.E))
+        {
+            SpawnEnemy();
+        }
+        if(Input.GetKey(KeyCode.R))
+        {
+            SpawnPickup();
+        }
 
     }
 
-    //Spawns a random from unlocked weapons at random side of the screen
-    //Chance of which of unlocked weapon will spawn is defined in chanceOfWeaponChoice
     void SpawnWeapon()
     {
         float randForChoice = Random.value;
@@ -103,29 +133,86 @@ public class LevelController : MonoBehaviour
         }
     }
 
-    void SpawnEnemyOrPowerup(GameObject gameobject)
+    void SpawnEnemy()
     {
-        Vector3 offset = getPositionOffset();
-        float randForSide = Random.Range(0f, 1f);
-        if (randForSide < 0.5f)
-        {
-            Instantiate(gameobject, spawnLeft.transform.position + offset, Quaternion.identity);
-        }
-        else
-        {
-            Instantiate(gameobject, spawnRight.transform.position + offset, Quaternion.identity);
-        }
+        float randForChoice = Random.value;
+        float cumulative = 0f;
 
+        for (int i = 0; i < chanceOfEnemyChoice.Length; i++)
+        {
+            cumulative += chanceOfWeaponChoice[i];
 
+            if (randForChoice <= cumulative)
+            {
+                if (i == 0)
+                {
+                    delayBetweenTryingToSpawnEnemy = 0.5f;
+                    minTimeBetweenEnemySpawns = 0.5f;
+                }
+                else if (i == 1)
+                {
+                    delayBetweenTryingToSpawnEnemy = 1f;
+                    minTimeBetweenEnemySpawns = 2f;
+                }
+                else if (i == 2)
+                {
+                    delayBetweenTryingToSpawnEnemy = 5f;
+                    minTimeBetweenEnemySpawns = 15f;
+                }
+                float randForSide = Random.Range(0f, 1f);
+                if (randForSide < 0.5f)
+                {
+                    Instantiate(enemiesPrefabs[i], spawnLeft.transform.position + getPositionOffset(), Quaternion.identity);
+                }
+                else
+                {
+                    Instantiate(enemiesPrefabs[i], spawnRight.transform.position+getPositionOffset(), Quaternion.identity);
+                }
+
+                break;
+            }
+        }
+    }
+
+    void SpawnPickup()
+    {
+        int randForChoice = Random.Range(0, 3);
+        int i = 0;
+        switch(randForChoice)
+        {
+               case 0:
+                i = 0;
+                    break;
+                case 1:
+                    i = 1;
+                    break;
+                case 2:
+                    i = 2;
+                    break;
+            case 3:
+                i = 3;
+                break;
+        }
+                float randForSide = Random.Range(0f, 1f);
+                if (randForSide < 0.5f)
+                {
+                    Instantiate(pickupsPrefabs[i], spawnLeft.transform.position + getPositionOffset(), Quaternion.identity);
+                }
+                else
+                {
+                    Instantiate(pickupsPrefabs[i], spawnRight.transform.position + getPositionOffset(), Quaternion.identity);
+                }
+
+            
+            
+        
     }
 
     Vector3 getPositionOffset()
     {
         Vector3 offset = new Vector3(0, 0, 0);
-        float randForSideX = Random.Range(-1.8f, 1.8f);
-        float randForSideZ = Random.Range(-5f, 5f);
-        offset.x = randForSideX;
-        offset.z = randForSideZ;
+        float randForSide = Random.Range(-5f, 5f);
+        offset.x = randForSide;
         return offset;
     }
 

@@ -8,14 +8,10 @@ public class btnContinue : MonoBehaviour
 {
     //Script for managing view after finishing level
 
-    //Label showing how much money was earned during the level
-    public Text txtMoney;
-    //Number of the level that was finished to be able to restart it
-    int currentLevel = 1;
-    //Money before level started
-    int previousMoney;
-    //Money after level finished
-    int money;
+    public Text txtMoney;     //Label showing how much money was earned during the level
+    public int currentLevel;  //Number of the level that was finished to be able to restart it
+    private int previousMoney;        //Money before level started
+    private int money;                //Money after level finished
 
 
     void Start()
@@ -29,13 +25,14 @@ public class btnContinue : MonoBehaviour
         txtMoney.text = (money-previousMoney).ToString();
     }
 
-
+    //Load Capmaign scene when continue button is pressed
     public void ContinueButtonClicked()
     {
         PlayerPrefs.SetInt("previousMoney", money);
         SceneManager.LoadScene("Campaign");
     }
 
+    //Load level again when restart button is pressed
     public void RestartButtonClicked()
     {
         SceneManager.LoadScene(currentLevel);

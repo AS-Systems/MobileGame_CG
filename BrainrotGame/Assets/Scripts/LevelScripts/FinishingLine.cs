@@ -5,19 +5,15 @@ using UnityEngine.SceneManagement;
 
 public class FinishingLine : Pickup
 {
+    //Script for handling the line that marks the end of the level
 
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
-
-    // Update is called once per frame
     void Update()
     {
+        //Move constantly towards pigeon
         move();
     }
 
+    //Load EndView scene after reaching pigeon
     private void OnTriggerEnter(Collider other)
     {
         if(other.gameObject.layer == 10)

@@ -5,20 +5,22 @@ using UnityEngine.UI;
 
 public class Enemy : MonoBehaviour
 {
-    public float maximumHealth;
-    public float health;
-    public float damage;
-    public float damageFrequency;
+    //Script for handling enemies
 
-    public Pigeon pigeon;
-    public Slider healthBar;
-    public Text txtMoney;
+    public float maximumHealth;     //Max health an enemy can have
+    public float health;            //Actual health of the enemy
+    public float damage;            //Damage the enemy does to the player
+    public float damageFrequency;   //How often it hurts the player
+
+    public Pigeon pigeon;           //Player
+    public Slider healthBar;        //Health bar above enemy
+    public Text txtMoney;           //Label of money in the UI
     
-    public float timeSinceLastDamage;
+    private float timeSinceLastDamage;  //Counting time since last damage was dealt
 
-    // Start is called before the first frame update
     void Start()
     {
+        //Set health bar and find objects in the scene
         health = maximumHealth;
         healthBar.maxValue = maximumHealth;
         healthBar.value = health;
@@ -26,7 +28,6 @@ public class Enemy : MonoBehaviour
         txtMoney = GameObject.Find("txtMoney").GetComponent<Text>();
     }
 
-    // Update is called once per frame
     void Update()
     {
         if(health <= 0)
@@ -36,6 +37,7 @@ public class Enemy : MonoBehaviour
 
     }
 
+    //Deal damage only if pigeon isn't immune
     void dealDamage()
     {
         if (pigeon.immunity == true)
@@ -45,12 +47,14 @@ public class Enemy : MonoBehaviour
         pigeon.health -= damage;
     }
 
+    //Lower health after being struck with bullet. This function is called by bullet.
     public void takeDamage(float damage)
     {
         health -= damage;
         updateHealthBar(health);
     }
 
+    //Give pigeon money by setting label and PlayerPrefs, destroy enemy
     void die()
     {
         pigeon.money++;
@@ -61,11 +65,13 @@ public class Enemy : MonoBehaviour
 
     }   
     
+    //Show change of health on healthbar
     void updateHealthBar(float health)
     {
         healthBar.value = health;
     }
 
+    //Deal damage to the player if enemy is in it's collission
     void OnTriggerStay(Collider other)
     {
         if(other.gameObject.layer == 10)

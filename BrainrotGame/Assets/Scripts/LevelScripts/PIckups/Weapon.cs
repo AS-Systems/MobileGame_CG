@@ -4,30 +4,25 @@ using UnityEngine;
 
 public class Weapon : Pickup
 {
-    public int weaponIndex;
-    public PigeonMover pigeonMover;
-    public GameObject weaponHolder;
+    //Script for the weapon pickups (2D sprites).
 
-    Vector3 originalWeaponHolderPos;
+    public int weaponIndex;             //Information which weapon to spawn (legacy solution)
+    public GameObject weaponHolder;     //Empty child of pigeon that holds the weapon
 
-
-    // Start is called before the first frame update
     void Start()
     {
+        //Find pigeon and weapon holder in the scene
         pigeon = GameObject.Find("Pigeon").GetComponent<Pigeon>();
-        pigeonMover = GameObject.Find("Pigeon").GetComponent<PigeonMover>();
         weaponHolder = GameObject.Find("WeaponHolder");
-
-       // originalWeaponHolderPos = weaponHolder.transform.position;
-
     }
 
-    // Update is called once per frame
     void Update()
     {
+        //Move function inherited from Pickup
         move();
     }
 
+    //Go to picked() function when collides with the pigeon
     void OnTriggerEnter(Collider other)
     {
         if (other.gameObject.layer == 10)
@@ -39,24 +34,10 @@ public class Weapon : Pickup
 
     override protected void picked()
     {
-
-        if (weaponIndex == 0)
-        {
-          //  Vector3 offset = new Vector3(0.47f, 0.15f, 0f);
-         //   weaponHolder.transform.position = originalWeaponHolderPos + offset;
-        }
-        if (weaponIndex == 6)
-        {
-            weaponHolder.transform.rotation = Quaternion.Euler(-90, 90, 0);
-        }
-        else { weaponHolder.transform.rotation = Quaternion.Euler(-90, 0, 0);/* weaponHolder.transform.position = originalWeaponHolderPos;*/ }
-
+        //Instanitate weapon model in the weapon holder
         GameObject newWeapon = Instantiate(pigeon.weaponsModels[weaponIndex], weaponHolder.transform.position, weaponHolder.transform.rotation, weaponHolder.transform);
 
-
-
-        pigeon.weaponIndex = weaponIndex;
-        pigeon.damage = pigeon.weaponsDamages[weaponIndex];
+        //Destroy old weapon and pickup
         foreach(Transform child in weaponHolder.transform)
         {
             if (child != newWeapon.transform)

@@ -4,18 +4,21 @@ using UnityEngine;
 
 public class Health : Pickup
 {
-    // Start is called before the first frame update
+    //Script for the health pickup
+
     void Start()
     {
+        //Finds the pigeon object in the scene 
         pigeon = GameObject.Find("Pigeon").GetComponent<Pigeon>();
     }
 
-    // Update is called once per frame
     void Update()
     {
+        //Move function inherited from Pickup
         move();
     }
 
+    //Go to picked() function when collides with the pigeon
     private void OnTriggerEnter(Collider other)
     {
         if (other.gameObject.layer == 10)
@@ -26,6 +29,7 @@ public class Health : Pickup
 
     override protected void picked()
     {
+        //Add no more health than it's full value, destroy pickup
         if(pigeon.health >= 100)
         {
             Destroy(gameObject);

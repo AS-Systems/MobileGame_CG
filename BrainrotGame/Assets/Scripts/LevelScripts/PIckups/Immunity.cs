@@ -4,18 +4,21 @@ using UnityEngine;
 
 public class Immunity : Pickup
 {
-    // Start is called before the first frame update
+    //Script for the immunity pickup.
+    
     void Start()
     {
+        //Find Pigeon in the scene
         pigeon = GameObject.Find("Pigeon").GetComponent<Pigeon>();
     }
 
-    // Update is called once per frame
     void Update()
     {
+        //Move function inherited from Pickup
         move();
     }
 
+    //Go to picked() function when collides with the pigeon
     private void OnTriggerEnter(Collider other)
     {
         if (other.gameObject.layer == 10)
@@ -24,6 +27,7 @@ public class Immunity : Pickup
         }
     }
 
+    //Turn on immunity for the pigeon and destroy the pickup
     override protected void picked()
     {
         pigeon.immunity = true;

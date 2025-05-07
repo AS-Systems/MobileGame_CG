@@ -5,21 +5,24 @@ using UnityEngine.UI;
 
 public class Money : Pickup
 {
-    public Text txtMoney;
+    //Money pickup script.
 
-    // Start is called before the first frame update
+    public Text txtMoney;   //Label showing how much money was earned during the level
+
     void Start()
     {
+        //Find Pigeon and Money label in the scene
         pigeon = GameObject.Find("Pigeon").GetComponent<Pigeon>();
         txtMoney = GameObject.Find("txtMoney").GetComponent<Text>();
     }
 
-    // Update is called once per frame
     void Update()
     {
+        //Move function inherited from Pickup
         move();
     }
 
+    //Add money by setting label and PlayerPrefs, destroy pickup
     protected override void picked()
     {
         pigeon.money++;
@@ -29,6 +32,7 @@ public class Money : Pickup
         Destroy(gameObject);
     }
 
+    //Go to picked() function when collides with the pigeon
     private void OnTriggerEnter(Collider other)
     {
         if (other.gameObject.layer == 10)
