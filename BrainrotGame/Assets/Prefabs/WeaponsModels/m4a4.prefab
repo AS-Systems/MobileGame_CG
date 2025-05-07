@@ -93,7 +93,8 @@ GameObject:
   m_Component:
   - component: {fileID: 1768576147548107969}
   - component: {fileID: 8853348647100362687}
-  m_Layer: 0
+  - component: {fileID: -5163298343336255767}
+  m_Layer: 9
   m_Name: m4a4
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -143,6 +144,25 @@ MonoBehaviour:
   posX: 0
   posY: 0
   posZ: 0
+--- !u!114 &-5163298343336255767
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1423399227528392315}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f839c8443d44bb54a9ea6fa06b82e6ed, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  damage: 15
+  reloadSpeed: 0.6
+  time: 0
+  bulletSpeed: 18
+  bullet: {fileID: 0}
+  weaponHolder: {fileID: 0}
+  pigeon: {fileID: 0}
 --- !u!1 &1481090900626645326
 GameObject:
   m_ObjectHideFlags: 0

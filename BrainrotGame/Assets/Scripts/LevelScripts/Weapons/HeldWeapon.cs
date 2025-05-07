@@ -29,7 +29,7 @@ public class HeldWeapon : MonoBehaviour
         shoot();
     }
 
-    void shoot()
+    protected virtual void shoot()
     {
         if(time < reloadSpeed)
         {

@@ -207,7 +207,8 @@ GameObject:
   m_Component:
   - component: {fileID: 5610227663485179846}
   - component: {fileID: -2212989363952091966}
-  m_Layer: 0
+  - component: {fileID: 8746391755651273809}
+  m_Layer: 9
   m_Name: Revolver
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -253,6 +254,28 @@ MonoBehaviour:
   posX: 0
   posY: 0
   posZ: 1
+--- !u!114 &8746391755651273809
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5084661807745518972}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 479554684d7fd6a4ca7a2e9572f0b850, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  damage: 30
+  reloadSpeed: 1
+  time: 0
+  bulletSpeed: 9
+  bullet: {fileID: 5777662210547989695, guid: c068a7e967980ac48b7216c168bfe57e, type: 3}
+  weaponHolder: {fileID: 0}
+  pigeon: {fileID: 0}
+  numberOfBullets: 6
+  timeToReload: 5
+  timeSinceReloadStarted: 0
 --- !u!1 &8712242830479523373
 GameObject:
   m_ObjectHideFlags: 0

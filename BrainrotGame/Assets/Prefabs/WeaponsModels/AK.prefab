@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 8216065029511888834}
   - component: {fileID: 7225897528081636790}
   - component: {fileID: 5605993820412318508}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Cylinder
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -93,7 +93,8 @@ GameObject:
   m_Component:
   - component: {fileID: 3005413236992033304}
   - component: {fileID: -4106188082468159104}
-  m_Layer: 0
+  - component: {fileID: 4057179801903016486}
+  m_Layer: 9
   m_Name: AK
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -138,6 +139,25 @@ MonoBehaviour:
   posX: 0
   posY: 0
   posZ: 0
+--- !u!114 &4057179801903016486
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2521610925977016482}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ccd7d19d9f343bf48bf57fa9140bca4c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  damage: 20
+  reloadSpeed: 0.5
+  time: 0
+  bulletSpeed: 20
+  bullet: {fileID: 0}
+  weaponHolder: {fileID: 0}
+  pigeon: {fileID: 0}
 --- !u!1 &4129886483247415529
 GameObject:
   m_ObjectHideFlags: 0
@@ -149,7 +169,7 @@ GameObject:
   - component: {fileID: 1830957754539213568}
   - component: {fileID: 826085711231834424}
   - component: {fileID: 2426410663338841316}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: czarne
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -232,7 +252,7 @@ GameObject:
   - component: {fileID: 5537608441698467668}
   - component: {fileID: 287194086323096338}
   - component: {fileID: 1615429976290309384}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: drewno
   m_TagString: Untagged
   m_Icon: {fileID: 0}
