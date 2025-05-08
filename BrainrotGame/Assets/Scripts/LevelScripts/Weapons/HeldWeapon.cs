@@ -14,6 +14,7 @@ public class HeldWeapon : MonoBehaviour
     public GameObject bullet;       //Prefab of the bullet
     public GameObject weaponHolder; //Place where the bullet spawns
     public GameObject pigeon;       //Player
+    public AudioSource audioSource; //Audio of shooting
 
     void Start()
     {
@@ -39,6 +40,7 @@ public class HeldWeapon : MonoBehaviour
         }
         else
         {
+            audioSource.Play();
             GameObject newBullet = Instantiate(bullet, weaponHolder.transform.position, Quaternion.identity);
             time = 0;
         }

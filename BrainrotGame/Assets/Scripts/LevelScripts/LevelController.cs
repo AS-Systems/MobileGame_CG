@@ -6,27 +6,27 @@ using UnityEngine.SceneManagement;
 
 public class LevelController : MonoBehaviour
 {
-    public GameObject[] wavesTypes;
-    public int[] wavesValue;
-    public float[] wavesTimes;
-    public int actualWaveIndex;
+    //Script like Game Controller but for pre-designed levels.
+    //It handles spawning enemies, powerups and weapons.
 
-    public GameObject[] weaponsPrefabs;
-    public GameObject spawnLeft;
-    public GameObject spawnRight;
+    public GameObject[] wavesTypes;         //Array of chosen prefabs that will be spawned in a wave
+    public int[] wavesValue;                //Array of how many of each prefab will be spawned in a wave
+    public float[] wavesTimes;              //Array of how long until next wave will be spawned
+    public int actualWaveIndex;             //Index of the wave that was just spawned (Starts from 0)
 
-    public int[] unlockedWeapons;
-    public float[] chanceOfWeaponChoice;
-    public float[] chanceOfEnemyChoice;
-    public float chanceOfWeaponSpawning;
+    public GameObject[] weaponsPrefabs;     //Array of all weapons prefabs in the game
+    public GameObject spawnLeft;            //Empty spawn point
+    public GameObject spawnRight;           //Empty spawn point
 
-    public float timeSinceLastWave;
+    public int[] unlockedWeapons;           //Array of weapons bought by the player (from PlayerPrefs, 1 = bought)
+    public float[] chanceOfWeaponChoice;    //How likely is each weapon to spawn (sum of all values should be 1)
+    //To spawn a weapon in a wave, we put any weapon prefab in wavesTypes. It will be then randomly chosen from unlocked ones.
+    public float timeSinceLastWave;         //Time since last wave was spawned
+    public int currentLevel;                //Number of current level
 
-    public int currentLevel;
-
-    // Start is called before the first frame update
     void Start()
     {
+        //Find all objects and get PlayerPrefs ready
         actualWaveIndex = 0;
         currentLevel = int.Parse(SceneManager.GetActiveScene().name);
         PlayerPrefs.SetInt("level", currentLevel);
@@ -35,28 +35,30 @@ public class LevelController : MonoBehaviour
         deserialiseWeapons();
     }
 
-    // Update is called once per frame
     void Update()
     {
         if (actualWaveIndex > wavesTypes.Length || actualWaveIndex > wavesValue.Length)
         {
-            return; // Prevent out-of-bounds errors
+            return; //Do nothing if we are out of waves
         }
-        if (actualWaveIndex < wavesTimes.Length)
+        if (actualWaveIndex < wavesTimes.Length) //If we have some waves to spawn
         {
-            if(timeSinceLastWave > wavesTimes[actualWaveIndex])
+            if(timeSinceLastWave > wavesTimes[actualWaveIndex]) //If it is time to spawn a wave
             {
+                //Check if prefab is one of the enemies of powerups
                 if (wavesTypes[actualWaveIndex].name == "EnemySuzanne" || wavesTypes[actualWaveIndex].name == "EnemyDragon 1" || wavesTypes[actualWaveIndex].name == "EnemyTeapot" ||
                     wavesTypes[actualWaveIndex].name == "DamageUp" || wavesTypes[actualWaveIndex].name == "DamageDown" || wavesTypes[actualWaveIndex].name == "Immunity" || wavesTypes[actualWaveIndex].name == "Health")
                 {
                     for (int i = 0; i < wavesValue[actualWaveIndex]; i++)
                     {
+                        //Spawn the prefab the amount of times known from wavesValue
                         SpawnEnemyOrPowerup(wavesTypes[actualWaveIndex]);
                     }
                     actualWaveIndex++;
                 }
                 else
                 {
+                    //If the prefab didn't match anything, just spawn a random weapon
                     SpawnWeapon();
                     actualWaveIndex++;
                 }
@@ -65,11 +67,7 @@ public class LevelController : MonoBehaviour
 
         }
 
-
         timeSinceLastWave += Time.deltaTime;
-
-
-
     }
 
     //Spawns a random from unlocked weapons at random side of the screen
@@ -79,6 +77,7 @@ public class LevelController : MonoBehaviour
         float randForChoice = Random.value;
         float cumulative = 0f;
 
+        //Function that randomly goes through chances of unlocking weapons and chooses one
         for (int i = 0; i < chanceOfWeaponChoice.Length; i++)
         {
             cumulative += chanceOfWeaponChoice[i];
@@ -88,6 +87,7 @@ public class LevelController : MonoBehaviour
                 {
                     return;
                 }
+                //Choose randomly in which spawn point the weapon will appear
                 float randForSide = Random.Range(0f, 1f);
                 if(randForSide < 0.5f)
                 {
@@ -103,9 +103,12 @@ public class LevelController : MonoBehaviour
         }
     }
 
+    //Spawns an enemy or powerup from chosen prefab at random of specified spawnpoints
     void SpawnEnemyOrPowerup(GameObject gameobject)
     {
+        //Offset makes many enemies not spawn in exactly same place
         Vector3 offset = getPositionOffset();
+        //Chose spawnpoint randomly from set ones
         float randForSide = Random.Range(0f, 1f);
         if (randForSide < 0.5f)
         {
@@ -119,6 +122,7 @@ public class LevelController : MonoBehaviour
 
     }
 
+    //Function that returns a random position offset in which prefab will be spawned from spawnpoint
     Vector3 getPositionOffset()
     {
         Vector3 offset = new Vector3(0, 0, 0);
@@ -129,6 +133,7 @@ public class LevelController : MonoBehaviour
         return offset;
     }
 
+    //Function that gets info about unlocked weapons from PlayerPrefs and changes it to the array
     void deserialiseWeapons()
     {
         string weapons = PlayerPrefs.GetString("weapons");
