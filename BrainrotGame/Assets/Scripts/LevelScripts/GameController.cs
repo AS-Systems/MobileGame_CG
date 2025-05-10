@@ -16,7 +16,7 @@ public class GameController : MonoBehaviour
     public GameObject spawnRight;           //Right Empty spawn point
 
     private int[] unlockedWeapons;          //Weapons bought in store
-    public float[] chanceOfWeaponChoice;    //Array showing with what chance each weapon may spawn (legacy solution)
+
     public float[] chanceOfEnemyChoice;     //Array showing with what chance each enemy may spawn (legacy solution)
     public float chanceOfWeaponSpawning;    //Chance of spawning concrete weapon
     public float minTimeBetweenWeaponSpawns;//Minimum time between weapon spawns
@@ -104,35 +104,23 @@ public class GameController : MonoBehaviour
         }
 
     }
-    
+
+    //Choose one weapon to spawn with equal chance
     void SpawnWeapon()
     {
-        float randForChoice = Random.value;
-        float cumulative = 0f;
-        //Go through all chances of spawning weapons and randomly choose one
-        for (int i = 0; i < chanceOfWeaponChoice.Length; i++)
+        int randForChoice = Random.Range(0, 6);
+
+        //Choose randomly in which spawn point the weapon will appear
+        float randForSide = Random.Range(0f, 1f);
+        if (randForSide < 0.5f)
         {
-            cumulative += chanceOfWeaponChoice[i];
-            if (randForChoice <= cumulative)
-            {
-                if (unlockedWeapons[i] == 0)
-                {
-                    return;
-                }
-                //Choose randomly in which spawn point the weapon will appear
-                float randForSide = Random.Range(0f, 1f);
-                if(randForSide < 0.5f)
-                {
-                    Instantiate(weaponsPrefabs[i], spawnLeft.transform.position, Quaternion.identity);
-                }
-                else
-                {
-                    Instantiate(weaponsPrefabs[i], spawnRight.transform.position, Quaternion.identity);
-                }
-                
-                break;
-            }
+            Instantiate(weaponsPrefabs[randForChoice], spawnLeft.transform.position, Quaternion.identity);
         }
+        else
+        {
+            Instantiate(weaponsPrefabs[randForChoice], spawnRight.transform.position, Quaternion.identity);
+        }
+
     }
 
     void SpawnEnemy()
@@ -142,7 +130,7 @@ public class GameController : MonoBehaviour
         //Go through all chances of spawning enemies and randomly choose one
         for (int i = 0; i < chanceOfEnemyChoice.Length; i++)
         {
-            cumulative += chanceOfWeaponChoice[i];
+            cumulative += chanceOfEnemyChoice[i];
 
             if (randForChoice <= cumulative)
             {
