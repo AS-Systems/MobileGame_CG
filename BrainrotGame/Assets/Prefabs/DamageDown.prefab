@@ -14,6 +14,7 @@ GameObject:
   - component: {fileID: 3352918141581111242}
   - component: {fileID: 3352918141581111246}
   - component: {fileID: 3352918141581111245}
+  - component: {fileID: -8095566779407253328}
   m_Layer: 0
   m_Name: DamageDown
   m_TagString: Untagged
@@ -132,6 +133,26 @@ MonoBehaviour:
   speed: 5
   pigeon: {fileID: 0}
   damageDown: 5
+--- !u!114 &-8095566779407253328
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3352918141581111243}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: da659b64742db614d914222d6029c2a1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  rotate: 1
+  positionate: 1
+  rotX: 50
+  rotY: 0
+  rotZ: 180
+  posX: 0
+  posY: 0.7
+  posZ: 0
 --- !u!1001 &7583436786544318687
 PrefabInstance:
   m_ObjectHideFlags: 0

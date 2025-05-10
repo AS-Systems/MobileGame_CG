@@ -695,7 +695,7 @@ MonoBehaviour:
   - 0.75
   - 0.2
   - 0.05
-  chanceOfWeaponSpawning: 0
+  chanceOfWeaponSpawning: 0.5
   minTimeBetweenWeaponSpawns: 5
   delayBetweenTryingToSpawnWeapon: 1
   chanceOfPickupSpawning: 5

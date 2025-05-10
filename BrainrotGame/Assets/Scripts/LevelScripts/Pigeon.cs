@@ -34,7 +34,6 @@ public class Pigeon : MonoBehaviour
         healthBar= GameObject.Find("PigeonHealthBar").GetComponent<Slider>();
         healthBar.maxValue = health;
         damage = weaponsDamages[weaponIndex]; //Legacy
-        bulletSpeed = weaponsBulletSpeeds[weaponIndex]; //Legacy
     }
 
     void Update()
@@ -66,11 +65,11 @@ public class Pigeon : MonoBehaviour
             choiceOfSound = Random.value > 0.5f;
             if (choiceOfSound)
             {
-                audioSource1.Play();
+               // audioSource1.Play();  Sees sound as null?
             }
             else
             {
-                audioSource2.Play();
+               // audioSource2.Play();
             }
             timeOfSounds = 0;
         }

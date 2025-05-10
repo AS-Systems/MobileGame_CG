@@ -18,7 +18,7 @@ public class GameController : MonoBehaviour
     private int[] unlockedWeapons;          //Weapons bought in store
 
     public float[] chanceOfEnemyChoice;     //Array showing with what chance each enemy may spawn (legacy solution)
-    public float chanceOfWeaponSpawning;    //Chance of spawning concrete weapon
+    public float chanceOfWeaponSpawning;    //Chance of spawning a weapon in range of 0f-1f
     public float minTimeBetweenWeaponSpawns;//Minimum time between weapon spawns
     public float delayBetweenTryingToSpawnWeapon;//Delay between trying a chance to spawn weapon
     public float chanceOfPickupSpawning;    //Chance a pickup will be spawned
