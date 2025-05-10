@@ -6,21 +6,18 @@ using UnityEngine;
 
 public class PigeonMover : MonoBehaviour
 {
-    public GameObject pigeon;
-    public GameObject weaponHolder;
-    public float speed;
+    //Script for handling the movement of the pigeon.
 
-    // Update is called once per frame
+    public float speed; //Speed of moving pigeon left/right
+
     void Update()
     {
-
+        //Handling touch input on mobile devices
         if (Input.touchCount > 0)
         {
             Touch touch = Input.GetTouch(0);
-
             Vector3 touchPosition = GetTouchWorldPosition();
-
-            touchPosition.z = transform.position.z; // Ensure Z stays the same
+            touchPosition.z = transform.position.z; 
 
             switch (touch.phase)
             {
@@ -36,6 +33,7 @@ public class PigeonMover : MonoBehaviour
             }
         }
 
+        //Handling keyboard input
         if(Input.GetKey(KeyCode.D))
         {
             moveLeft();
@@ -47,6 +45,7 @@ public class PigeonMover : MonoBehaviour
 
     }
 
+    //Calculate how touch input translates to world position
     Vector3 GetTouchWorldPosition()
     {
         Vector3 touchPosScreen = Input.GetTouch(0).position;

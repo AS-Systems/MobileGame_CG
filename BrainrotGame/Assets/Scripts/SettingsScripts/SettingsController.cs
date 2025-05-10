@@ -7,16 +7,16 @@ public class SettingsController : MonoBehaviour
 {
     //Script for handling settings menu
 
-    public Toggle sound;
-    public GameObject panel;
+    public Toggle sound;    //Checkbox for enabling/disabling sound
+    public GameObject panel;//Panel that asks if you really want to reset progress
 
     void Start()
     {
-        //Hide panel that asks if you really want to reset progresss
+        //At the start hide panel that asks if you really want to reset progresss
         panel.SetActive(false);
     }
 
-
+    //Save in PlayerPrefs if sound is on or off 
     public void Sound()
     {
         if (sound.isOn)
@@ -37,7 +37,7 @@ public class SettingsController : MonoBehaviour
 
     public void ResetProgress()
     {
-        //Reset all progress and hide panel
+        //Erase all progress from PlayerPrefs and hide panel
         panel.SetActive(false);
         PlayerPrefs.SetInt("money", 0);
         PlayerPrefs.SetInt("previousMoney", 0);

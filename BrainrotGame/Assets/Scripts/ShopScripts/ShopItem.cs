@@ -7,24 +7,16 @@ public class ShopItem : MonoBehaviour
 {
     //Script describing one item in the shop
 
-    //Label showing price of the item
-    public Text txtPrice;
-    //Label showing how much money do you have
-    public Text txtMoney;
-    //Index of the item, matching our normal order of weapons from milanote
-    public int weaponIndex;
+    public Text txtPrice;    //Label showing price of the item
+    public Text txtMoney;    //Label showing how much money do you have
+    public int weaponIndex;  //Index of the item, matching our normal order of weapons from milanote
 
-    // Start is called before the first frame update
     void Start()
     {
         txtMoney = GameObject.Find("txtMoney").GetComponent<Text>();
     }
 
-    // Update is called once per frame
-    void Update()
-    {        
-    }
-
+    //If item in the shop was clicked, check if you have enough money to buy it and do it
     public void buttonClicked()
     {
         int price;
@@ -37,19 +29,13 @@ public class ShopItem : MonoBehaviour
                 txtMoney.text = PlayerPrefs.GetInt("money").ToString();
                 SerializeAndBuy();
             }
-            else
-            {
-                Debug.Log("Not enough money");
-            }
         }
-
-
-
     }
 
+    //Serialize and save bought item in PlayerPrefs
     void SerializeAndBuy()
     {
-        string weapons = "0000000";
+        string weapons = "1000000";
         char[] weaponsArray = weapons.ToCharArray();
         weaponsArray[weaponIndex] = '1';
         weapons = new string(weaponsArray);

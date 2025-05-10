@@ -7,12 +7,9 @@ public class ShopController : MonoBehaviour
 {
     //Script for handling shop menu
 
-    //Label showing at the corner how much money do you have
-    public Text txtMoney;
-    //Array of labels showing prices of items
-    public Text[] itemsPrices;
-    //Value of money
-    public int money;
+    public Text txtMoney;     //Label showing at the corner how much money do you have
+    public Text[] itemsPrices;//Array of labels showing prices of items
+    public int money;         //Value of money
 
     void Start()
     {
