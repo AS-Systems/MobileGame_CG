@@ -205,7 +205,7 @@ public class GameController : MonoBehaviour
     Vector3 getPositionOffset()
     {
         Vector3 offset = new Vector3(0, 0, 0);
-        float randForSide = Random.Range(-5f, 5f);
+        float randForSide = Random.Range(-2.5f, 2.5f);
         offset.x = randForSide;
         return offset;
     }
