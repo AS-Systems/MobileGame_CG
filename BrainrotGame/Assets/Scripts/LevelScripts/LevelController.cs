@@ -19,7 +19,6 @@ public class LevelController : MonoBehaviour
     public GameObject spawnRight;           //Empty spawn point
 
     public int[] unlockedWeapons;           //Array of weapons bought by the player (from PlayerPrefs, 1 = bought)
-    public float[] chanceOfWeaponChoice;    //How likely is each weapon to spawn (sum of all values should be 1)
     //To spawn a weapon in a wave, we put any weapon prefab in wavesTypes. It will be then randomly chosen from unlocked ones.
     public float timeSinceLastWave;         //Time since last wave was spawned
     public int currentLevel;                //Number of current level
@@ -74,35 +73,20 @@ public class LevelController : MonoBehaviour
     //Chance of which of unlocked weapon will spawn is defined in chanceOfWeaponChoice
     void SpawnWeapon()
     {
-        float randForChoice = Random.value;
-        float cumulative = 0f;
+        int randForChoice = Random.Range(0, 6);
 
-        //Function that randomly goes through chances of unlocking weapons and chooses one
-        for (int i = 0; i < chanceOfWeaponChoice.Length; i++)
+        //Choose randomly in which spawn point the weapon will appear
+        float randForSide = Random.Range(0f, 1f);
+        if (randForSide < 0.5f)
         {
-            cumulative += chanceOfWeaponChoice[i];
-            if (randForChoice <= cumulative)
-            {
-                if (unlockedWeapons[i] == 0)
-                {
-                    return;
-                }
-                //Choose randomly in which spawn point the weapon will appear
-                float randForSide = Random.Range(0f, 1f);
-                if(randForSide < 0.5f)
-                {
-                    Instantiate(weaponsPrefabs[i], spawnLeft.transform.position, Quaternion.identity);
-                }
-                else
-                {
-                    Instantiate(weaponsPrefabs[i], spawnRight.transform.position, Quaternion.identity);
-                }
-                
-                break;
-            }
+            Instantiate(weaponsPrefabs[randForChoice], spawnLeft.transform.position, Quaternion.identity);
         }
-    }
+        else
+        {
+            Instantiate(weaponsPrefabs[randForChoice], spawnRight.transform.position, Quaternion.identity);
+        }
 
+    }
     //Spawns an enemy or powerup from chosen prefab at random of specified spawnpoints
     void SpawnEnemyOrPowerup(GameObject gameobject)
     {

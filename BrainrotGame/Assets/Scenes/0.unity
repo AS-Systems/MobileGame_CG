@@ -699,7 +699,7 @@ MonoBehaviour:
   minTimeBetweenWeaponSpawns: 5
   delayBetweenTryingToSpawnWeapon: 1
   chanceOfPickupSpawning: 5
-  minTimeBetweenEnemySpawns: 1
+  minTimeBetweenEnemySpawns: 5
   minTimeBetweenPickupsSpawns: 15
   delayBetweenTryingToSpawnEnemy: 1
   delayBetweenTryingToSpawnPickup: 5
