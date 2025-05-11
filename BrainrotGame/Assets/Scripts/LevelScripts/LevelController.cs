@@ -45,7 +45,7 @@ public class LevelController : MonoBehaviour
             if(timeSinceLastWave > wavesTimes[actualWaveIndex]) //If it is time to spawn a wave
             {
                 //Check if prefab is one of the enemies of powerups
-                if (wavesTypes[actualWaveIndex].name == "EnemySuzanne" || wavesTypes[actualWaveIndex].name == "EnemyDragon 1" || wavesTypes[actualWaveIndex].name == "EnemyTeapot" ||
+                if (wavesTypes[actualWaveIndex].name == "EnemySuzanne" || wavesTypes[actualWaveIndex].name == "EnemyDragon 1" || wavesTypes[actualWaveIndex].name == "EnemyTeapot" || wavesTypes[actualWaveIndex].name == "Money" ||
                     wavesTypes[actualWaveIndex].name == "DamageUp" || wavesTypes[actualWaveIndex].name == "DamageDown" || wavesTypes[actualWaveIndex].name == "Immunity" || wavesTypes[actualWaveIndex].name == "Health")
                 {
                     for (int i = 0; i < wavesValue[actualWaveIndex]; i++)
