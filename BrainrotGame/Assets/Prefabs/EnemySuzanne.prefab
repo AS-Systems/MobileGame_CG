@@ -115,12 +115,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   maximumHealth: 20
   health: 20
-  damage: 10
+  damage: 4
   damageFrequency: 1
   pigeon: {fileID: 0}
   healthBar: {fileID: 4499278474468666401}
   txtMoney: {fileID: 0}
-  timeSinceLastDamage: 0
 --- !u!114 &4499278474922581659
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -133,8 +132,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1f3d10c501ad0b34a919b79bb43adb8c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 4
-  rb: {fileID: 0}
+  speed: 10
   rotX: -90
   rotY: 360
   rotZ: 180

@@ -118,8 +118,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b6fa24424acff1c47925582ba353eff7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  damage: 1
-  reloadSpeed: 1
+  damage: 10
+  reloadSpeed: 2
   bulletSpeed: 5
   bullet: {fileID: 5777662210547989695, guid: c068a7e967980ac48b7216c168bfe57e, type: 3}
   weaponHolder: {fileID: 0}

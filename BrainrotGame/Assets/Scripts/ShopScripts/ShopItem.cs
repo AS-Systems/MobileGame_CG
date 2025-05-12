@@ -27,6 +27,7 @@ public class ShopItem : MonoBehaviour
 
                 PlayerPrefs.SetInt("money", PlayerPrefs.GetInt("money") - price);
                 txtMoney.text = PlayerPrefs.GetInt("money").ToString();
+                PlayerPrefs.SetInt("previousMoney", PlayerPrefs.GetInt("money"));
                 SerializeAndBuy();
             }
         }

@@ -31,9 +31,12 @@ public class Pigeon : MonoBehaviour
     {
         //Set up all variables and objects
         health = maxHealth;
-        healthBar= GameObject.Find("PigeonHealthBar").GetComponent<Slider>();
+     //   healthBar= GameObject.Find("PigeonHealthBar").GetComponent<Slider>();
         healthBar.maxValue = health;
         damage = weaponsDamages[weaponIndex]; //Legacy
+        AudioSource[] audioSources = GetComponents<AudioSource>();
+        audioSource1 = audioSources[0];
+        audioSource2 = audioSources[1];
     }
 
     void Update()
@@ -65,11 +68,11 @@ public class Pigeon : MonoBehaviour
             choiceOfSound = Random.value > 0.5f;
             if (choiceOfSound)
             {
-               // audioSource1.Play();  Sees sound as null?
+                audioSource1.Play(); 
             }
             else
             {
-               // audioSource2.Play();
+                audioSource2.Play();
             }
             timeOfSounds = 0;
         }

@@ -15,7 +15,7 @@ public class GameController : MonoBehaviour
     public GameObject spawnLeft;            //Left Empty spawn point
     public GameObject spawnRight;           //Right Empty spawn point
 
-    private int[] unlockedWeapons;          //Weapons bought in store
+    private string unlockedWeapons;          //Weapons bought in store
 
     public float[] chanceOfEnemyChoice;     //Array showing with what chance each enemy may spawn (legacy solution)
     public float chanceOfWeaponSpawning;    //Chance of spawning a weapon in range of 0f-1f
@@ -44,7 +44,8 @@ public class GameController : MonoBehaviour
         PlayerPrefs.SetInt("level", currentLevel);
         spawnLeft = GameObject.Find("SpawnLeft");
         spawnRight = GameObject.Find("SpawnRight");
-        deserialiseWeapons();
+        PlayerPrefs.SetInt("previousMoney", PlayerPrefs.GetInt("money"));
+        unlockedWeapons = PlayerPrefs.GetString("weapons");
     }
 
     void Update()
@@ -108,7 +109,22 @@ public class GameController : MonoBehaviour
     //Choose one weapon to spawn with equal chance
     void SpawnWeapon()
     {
-        int randForChoice = Random.Range(0, 6);
+        //Check which weapons are bought and choose random one
+        int i = 0;
+        int randForChoice = 0;
+        while (i == 0)
+        {
+            randForChoice = Random.Range(0, 6);
+            if (unlockedWeapons[randForChoice] == '1')
+            {
+                i = 1;
+            }
+            else
+            {
+                i = 0;
+            }
+        }
+
 
         //Choose randomly in which spawn point the weapon will appear
         float randForSide = Random.Range(0f, 1f);
@@ -205,20 +221,12 @@ public class GameController : MonoBehaviour
     Vector3 getPositionOffset()
     {
         Vector3 offset = new Vector3(0, 0, 0);
-        float randForSide = Random.Range(-2.5f, 2.5f);
-        offset.x = randForSide;
+        float randForSideX = Random.Range(-1.8f, 1.8f);
+        float randForSideZ = Random.Range(-5f, 5f);
+        offset.x = randForSideX;
+        offset.z = randForSideZ;
         return offset;
     }
     //Read bought weapons from PlayerPrefs and make an array of them
-    void deserialiseWeapons()
-    {
-        string weapons = PlayerPrefs.GetString("weapons");
-        if (!string.IsNullOrEmpty(weapons) && weapons.Length == 7)
-        {
-            for (int i = 0; i < 7; i++)
-            {
-                unlockedWeapons[i] = weapons[i] == '1' ? 1 : 0;
-            }
-        }
-    }
+
 }

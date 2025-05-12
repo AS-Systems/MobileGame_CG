@@ -32,9 +32,10 @@ public class EnemyMover : MonoBehaviour
     //Stay in place after reaching the player.
     private void OnTriggerEnter(Collider other)
     {
-        if(other.gameObject.layer == 10)
+        if(other.gameObject.layer == 8)
         {
             speed = 0;
         }
     }
+
 }

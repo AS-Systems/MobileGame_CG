@@ -18,5 +18,6 @@ public class LoadLevel : MonoBehaviour
     public void GoBackButtonClicked()
     {
         SceneManager.LoadScene("MainMenu");
+        
     }
 }

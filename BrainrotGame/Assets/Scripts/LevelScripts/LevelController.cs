@@ -32,6 +32,8 @@ public class LevelController : MonoBehaviour
         spawnLeft = GameObject.Find("SpawnLeft");
         spawnRight = GameObject.Find("SpawnRight");
         unlockedWeapons = PlayerPrefs.GetString("weapons");
+        PlayerPrefs.SetInt("previousMoney", PlayerPrefs.GetInt("money"));
+        
     }
 
     void Update()

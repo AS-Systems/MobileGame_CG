@@ -74,7 +74,7 @@ public class Enemy : MonoBehaviour
     //Deal damage to the player if enemy is in it's collission
     void OnTriggerStay(Collider other)
     {
-        if(other.gameObject.layer == 10)
+        if(other.gameObject.layer == 8)
         {
             timeSinceLastDamage += Time.deltaTime;
             if(timeSinceLastDamage >= damageFrequency)
@@ -84,4 +84,5 @@ public class Enemy : MonoBehaviour
             }
         }
     }
+
 }
