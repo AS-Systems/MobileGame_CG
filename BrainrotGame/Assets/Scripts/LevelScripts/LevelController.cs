@@ -18,7 +18,7 @@ public class LevelController : MonoBehaviour
     public GameObject spawnLeft;            //Empty spawn point
     public GameObject spawnRight;           //Empty spawn point
 
-    public int[] unlockedWeapons;           //Array of weapons bought by the player (from PlayerPrefs, 1 = bought)
+    public string unlockedWeapons;           //Array of weapons bought by the player (from PlayerPrefs, 1 = bought)
     //To spawn a weapon in a wave, we put any weapon prefab in wavesTypes. It will be then randomly chosen from unlocked ones.
     public float timeSinceLastWave;         //Time since last wave was spawned
     public int currentLevel;                //Number of current level
@@ -31,7 +31,7 @@ public class LevelController : MonoBehaviour
         PlayerPrefs.SetInt("level", currentLevel);
         spawnLeft = GameObject.Find("SpawnLeft");
         spawnRight = GameObject.Find("SpawnRight");
-        deserialiseWeapons();
+        unlockedWeapons = PlayerPrefs.GetString("weapons");
     }
 
     void Update()
@@ -73,7 +73,22 @@ public class LevelController : MonoBehaviour
     //Chance of which of unlocked weapon will spawn is defined in chanceOfWeaponChoice
     void SpawnWeapon()
     {
-        int randForChoice = Random.Range(0, 6);
+        //Check which weapons are bought and choose random one
+        int i = 0;
+        int randForChoice = 0;
+        while(i==0)
+        {
+            randForChoice = Random.Range(0, 6);
+            if (unlockedWeapons[randForChoice] == '1')
+            {
+                i = 1;
+            }
+            else
+            {
+                i=0;
+            }
+        }
+
 
         //Choose randomly in which spawn point the weapon will appear
         float randForSide = Random.Range(0f, 1f);
@@ -117,16 +132,4 @@ public class LevelController : MonoBehaviour
         return offset;
     }
 
-    //Function that gets info about unlocked weapons from PlayerPrefs and changes it to the array
-    void deserialiseWeapons()
-    {
-        string weapons = PlayerPrefs.GetString("weapons");
-        if (!string.IsNullOrEmpty(weapons) && weapons.Length == 7)
-        {
-            for (int i = 0; i < 7; i++)
-            {
-                unlockedWeapons[i] = weapons[i] == '1' ? 1 : 0;
-            }
-        }
-    }
 }
